@@ -1,0 +1,136 @@
+[gd_scene load_steps=15 format=3 uid="uid://cyu0xu5lrd1da"]
+
+[ext_resource type="Script" path="res://src/scene/level/level.gd" id="1_3cmh3"]
+[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="2_gdwfx"]
+[ext_resource type="Shader" path="res://src/shader/scrolling_background.gdshader" id="3_qfrpp"]
+[ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="4_lpyua"]
+[ext_resource type="PackedScene" uid="uid://rhb1a4subqkb" path="res://src/card/CardSlot.tscn" id="5_f570c"]
+[ext_resource type="PackedScene" uid="uid://csa6mt0c5l2pw" path="res://src/card/Card.tscn" id="6_gqj7b"]
+[ext_resource type="Resource" uid="uid://bbouc3mspirtx" path="res://src/card/data/uno_yellow_6.tres" id="7_hv550"]
+[ext_resource type="Resource" uid="uid://cjc3t4v8j5p5b" path="res://src/card/data/uno_red_6.tres" id="8_x2gmw"]
+[ext_resource type="Resource" uid="uid://cl3vmd0cil1xm" path="res://src/card/data/uno_red_8.tres" id="9_g0vr7"]
+[ext_resource type="Resource" uid="uid://b8ynloc3don2p" path="res://src/card/data/uno_red_skip.tres" id="10_tgptk"]
+[ext_resource type="Resource" uid="uid://6de8xwjvl0xk" path="res://src/card/data/uno_plus4.tres" id="11_u70on"]
+[ext_resource type="Resource" uid="uid://hw8av7sy3j4u" path="res://src/card/data/uno_yellow_4.tres" id="12_wnr5w"]
+[ext_resource type="PackedScene" uid="uid://b7o15pcamy62d" path="res://src/scene/GameUI.tscn" id="14_78hjk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p6ren"]
+shader = ExtResource("3_qfrpp")
+shader_parameter/motion = Vector2(-10, 10)
+shader_parameter/scale = 0.5
+shader_parameter/offset = Vector2(0, 0)
+
+[node name="Level3" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3cmh3")
+level_id = 2
+level_description = "~Introducing the wild card~"
+allow_tag_compare = false
+
+[node name="BaseBG" type="TextureRect" parent="."]
+self_modulate = Color(1, 0.933333, 0.866667, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gdwfx")
+
+[node name="AnimatedBG" type="TextureRect" parent="."]
+self_modulate = Color(1, 0.847059, 0.745098, 1)
+material = SubResource("ShaderMaterial_p6ren")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_lpyua")
+stretch_mode = 1
+flip_v = true
+
+[node name="TableCardHolder" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -98.5
+offset_right = 283.0
+offset_bottom = 81.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="CardSlot" parent="TableCardHolder" instance=ExtResource("5_f570c")]
+layout_mode = 2
+
+[node name="CardSlot2" parent="TableCardHolder" instance=ExtResource("5_f570c")]
+layout_mode = 2
+
+[node name="CardSlot3" parent="TableCardHolder" instance=ExtResource("5_f570c")]
+layout_mode = 2
+
+[node name="CardSlot4" parent="TableCardHolder" instance=ExtResource("5_f570c")]
+layout_mode = 2
+
+[node name="Card4" parent="TableCardHolder/CardSlot4" instance=ExtResource("6_gqj7b")]
+layout_mode = 2
+offset_left = 2.5
+offset_top = 2.5
+offset_right = 112.5
+offset_bottom = 177.5
+data = ExtResource("10_tgptk")
+locked = true
+
+[node name="CardSlot5" parent="TableCardHolder" instance=ExtResource("5_f570c")]
+layout_mode = 2
+
+[node name="CardSlot6" parent="TableCardHolder" instance=ExtResource("5_f570c")]
+layout_mode = 2
+
+[node name="HandCardHolder" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -226.0
+offset_top = -84.0
+offset_right = 226.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Card3" parent="HandCardHolder" instance=ExtResource("6_gqj7b")]
+layout_mode = 2
+data = ExtResource("9_g0vr7")
+
+[node name="Card5" parent="HandCardHolder" instance=ExtResource("6_gqj7b")]
+layout_mode = 2
+data = ExtResource("11_u70on")
+
+[node name="Card" parent="HandCardHolder" instance=ExtResource("6_gqj7b")]
+layout_mode = 2
+data = ExtResource("7_hv550")
+
+[node name="Card6" parent="HandCardHolder" instance=ExtResource("6_gqj7b")]
+layout_mode = 2
+data = ExtResource("12_wnr5w")
+
+[node name="Card2" parent="HandCardHolder" instance=ExtResource("6_gqj7b")]
+layout_mode = 2
+data = ExtResource("8_x2gmw")
+
+[node name="GameUI" parent="." instance=ExtResource("14_78hjk")]
+layout_mode = 1

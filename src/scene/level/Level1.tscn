@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bwsmv7qyj0545"]
+[gd_scene load_steps=13 format=3 uid="uid://bwsmv7qyj0545"]
 
 [ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="1_mex3v"]
 [ext_resource type="Script" path="res://src/scene/level/level.gd" id="1_t1sgn"]
@@ -7,49 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="3_c22hd"]
 [ext_resource type="PackedScene" uid="uid://csa6mt0c5l2pw" path="res://src/card/Card.tscn" id="3_prcam"]
 [ext_resource type="PackedScene" uid="uid://b7o15pcamy62d" path="res://src/scene/GameUI.tscn" id="4_1x87l"]
-[ext_resource type="Texture2D" uid="uid://cx63p77pa8q20" path="res://asset/sprite/card_sprite/uno_red_1.png" id="7_t2bqf"]
-[ext_resource type="Script" path="res://src/card/card_resource.gd" id="8_3w4tn"]
-[ext_resource type="Texture2D" uid="uid://c7fttgpsrr7hu" path="res://asset/sprite/card_sprite/uno_blue_3.png" id="9_pkglb"]
-[ext_resource type="Texture2D" uid="uid://numoee4rx8x2" path="res://asset/sprite/card_sprite/uno_red_3.png" id="10_rktv0"]
-[ext_resource type="Texture2D" uid="uid://boic010h3eemo" path="res://asset/sprite/card_sprite/uno_blue_7.png" id="11_yxfos"]
+[ext_resource type="Resource" uid="uid://21dncqujx6fh" path="res://src/card/data/uno_red_1.tres" id="7_grfni"]
+[ext_resource type="Resource" uid="uid://c6dp4cnghymru" path="res://src/card/data/uno_blue_7.tres" id="8_v2mqf"]
+[ext_resource type="Resource" uid="uid://bn6u5iv73rjj8" path="res://src/card/data/uno_red_3.tres" id="10_cs1g8"]
+[ext_resource type="Resource" uid="uid://081v44qce37q" path="res://src/card/data/uno_blue_3.tres" id="10_fdylu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p6ren"]
 shader = ExtResource("2_dcr5b")
 shader_parameter/motion = Vector2(-10, 10)
 shader_parameter/scale = 0.5
 shader_parameter/offset = Vector2(0, 0)
-
-[sub_resource type="Resource" id="Resource_gmsv7"]
-script = ExtResource("8_3w4tn")
-card_name = "Uno Red 1"
-card_sprite = ExtResource("7_t2bqf")
-card_number = Array[int]([1])
-card_color = Array[int]([1])
-card_tags = Array[int]([1])
-
-[sub_resource type="Resource" id="Resource_xh8yl"]
-script = ExtResource("8_3w4tn")
-card_name = "Uno Blue 7"
-card_sprite = ExtResource("11_yxfos")
-card_number = Array[int]([7])
-card_color = Array[int]([3])
-card_tags = Array[int]([1])
-
-[sub_resource type="Resource" id="Resource_yab3t"]
-script = ExtResource("8_3w4tn")
-card_name = "Uno Blue 3"
-card_sprite = ExtResource("9_pkglb")
-card_number = Array[int]([3])
-card_color = Array[int]([3])
-card_tags = Array[int]([1])
-
-[sub_resource type="Resource" id="Resource_hw2g8"]
-script = ExtResource("8_3w4tn")
-card_name = "Uno "
-card_sprite = ExtResource("10_rktv0")
-card_number = Array[int]([3])
-card_color = Array[int]([1])
-card_tags = Array[int]([1])
 
 [node name="Level1" type="Control"]
 layout_mode = 3
@@ -109,7 +76,7 @@ offset_left = 2.5
 offset_top = 2.5
 offset_right = 112.5
 offset_bottom = 177.5
-data = SubResource("Resource_gmsv7")
+data = ExtResource("7_grfni")
 locked = true
 
 [node name="CardSlot2" parent="TableCardHolder" instance=ExtResource("2_32s0a")]
@@ -127,7 +94,7 @@ offset_left = 2.5
 offset_top = 2.5
 offset_right = 112.5
 offset_bottom = 177.5
-data = SubResource("Resource_xh8yl")
+data = ExtResource("8_v2mqf")
 locked = true
 
 [node name="HandCardHolder" type="HBoxContainer" parent="."]
@@ -145,13 +112,13 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="Card2" parent="HandCardHolder" instance=ExtResource("3_prcam")]
-layout_mode = 2
-data = SubResource("Resource_yab3t")
-
 [node name="Card3" parent="HandCardHolder" instance=ExtResource("3_prcam")]
 layout_mode = 2
-data = SubResource("Resource_hw2g8")
+data = ExtResource("10_fdylu")
+
+[node name="Card2" parent="HandCardHolder" instance=ExtResource("3_prcam")]
+layout_mode = 2
+data = ExtResource("10_cs1g8")
 
 [node name="GameUI" parent="." instance=ExtResource("4_1x87l")]
 layout_mode = 1

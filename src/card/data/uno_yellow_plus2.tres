@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://e8opkdo2vqe5"]
+
+[ext_resource type="Texture2D" uid="uid://bl60jjiveb77r" path="res://asset/sprite/card_sprite/uno_yellow_plus2.png" id="1_elofi"]
+[ext_resource type="Script" path="res://src/card/card_resource.gd" id="2_tdxdl"]
+
+[resource]
+script = ExtResource("2_tdxdl")
+card_name = "uno yellow plus 2"
+card_sprite = ExtResource("1_elofi")
+card_number = Array[int]([2])
+card_color = Array[int]([4])
+card_tags = Array[int]([1])
