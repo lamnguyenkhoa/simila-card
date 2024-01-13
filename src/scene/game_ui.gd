@@ -14,7 +14,7 @@ var next_level_scene: PackedScene = null
 func _ready() -> void:
 	if get_parent() is Level:
 		var level = get_parent() as Level
-		level_label.text = "Level " + str(level.level_id)
+		level_label.text = "Level " + str(level.level_id + 1)
 		description_label.text = level.level_description
 
 	if not Engine.is_editor_hint():

@@ -12,7 +12,7 @@ class_name Level
 @onready var hand_card_holder = $HandCardHolder
 
 func _ready() -> void:
-	GameManager.current_level = self
+	GameManager.update_current_level(self)
 	GameManager.card_moved.connect(check_if_win_level)
 
 func move_card_hand_to_table(card: Card, card_slot: CardSlot):
@@ -31,18 +31,23 @@ func move_card_table_to_hand(card: Card):
 	if not card.placed or not card.get_parent() is CardSlot:
 		return
 
-	card.get_parent().remove_child(card)
 	card.placed = false
+	card.get_parent().remove_child(card)
 	hand_card_holder.add_child(card)
 	GameManager.emit_signal("card_moved", card)
+	GameManager.selected_card = null
 
 
 func check_eligible(card: Card, card_slot: CardSlot) -> bool:
 	var slot_idx = card_slot.get_index()
-	var left_slot = table_card_holder.get_child(slot_idx - 1)
-	var right_slot = table_card_holder.get_child(slot_idx + 1)
+	var left_slot = null
+	if slot_idx > 0:
+		left_slot = table_card_holder.get_child(slot_idx - 1)
+	var right_slot = null
+	if slot_idx < table_card_holder.get_child_count() - 1:
+		right_slot = table_card_holder.get_child(slot_idx + 1)
 
-	if left_slot.check_if_already_has_card():
+	if left_slot != null and left_slot.check_if_already_has_card():
 		var left_card = left_slot.get_stored_card()
 		var left_res = compare_card(left_card, card)
 		if left_res == "Dissimilar!":
@@ -51,7 +56,7 @@ func check_eligible(card: Card, card_slot: CardSlot) -> bool:
 		else:
 			card_slot.show_check_result(left_res, true, true)
 
-	if right_slot.check_if_already_has_card():
+	if right_slot != null and right_slot.check_if_already_has_card():
 		var right_card = right_slot.get_stored_card()
 		var right_res = compare_card(right_card, card)
 		if right_res == "Dissimilar!":
