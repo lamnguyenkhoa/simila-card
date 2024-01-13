@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqwfl4qfjkf26"]
+[gd_scene load_steps=14 format=3 uid="uid://cqwfl4qfjkf26"]
 
 [ext_resource type="Script" path="res://src/scene/start_menu.gd" id="1_4utae"]
 [ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="1_x3n2w"]
 [ext_resource type="Shader" path="res://src/shader/scrolling_background.gdshader" id="2_ckg1j"]
+[ext_resource type="PackedScene" uid="uid://bwsmv7qyj0545" path="res://src/scene/level/Level1.tscn" id="2_vohpi"]
 [ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="3_y7v1b"]
 [ext_resource type="Texture2D" uid="uid://djls4rwur6bld" path="res://asset/sprite/title.png" id="4_hvxp1"]
 
@@ -94,6 +95,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4utae")
+level1 = ExtResource("2_vohpi")
 
 [node name="BaseBG" type="TextureRect" parent="."]
 self_modulate = Color(1, 0.933333, 0.866667, 1)
@@ -436,3 +438,4 @@ libraries = {
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="LevelSelect/GridContainer/Button" to="." method="_on_button_pressed"]

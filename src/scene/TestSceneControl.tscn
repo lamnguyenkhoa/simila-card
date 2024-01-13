@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cutp3bv5lvl4h"]
+[gd_scene load_steps=6 format=3 uid="uid://kn26gnqbm6p3"]
 
-[ext_resource type="Script" path="res://src/scene/level.gd" id="1_1xwms"]
+[ext_resource type="Script" path="res://src/scene/level/level.gd" id="1_yj6hw"]
 [ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="2_1bppt"]
 [ext_resource type="PackedScene" uid="uid://csa6mt0c5l2pw" path="res://src/card/Card.tscn" id="2_if4od"]
 [ext_resource type="PackedScene" uid="uid://rhb1a4subqkb" path="res://src/card/CardSlot.tscn" id="3_mql0j"]
+[ext_resource type="PackedScene" uid="uid://b7o15pcamy62d" path="res://src/scene/GameUI.tscn" id="5_myko3"]
 
 [node name="TestScene2" type="Control"]
 layout_mode = 3
@@ -12,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_1xwms")
+script = ExtResource("1_yj6hw")
 
 [node name="Background" type="TextureRect" parent="."]
 self_modulate = Color(0.996078, 0.980392, 0.878431, 1)
@@ -84,102 +85,5 @@ layout_mode = 2
 [node name="Card5" parent="HandCardHolder" instance=ExtResource("2_if4od")]
 layout_mode = 2
 
-[node name="GameUI" type="Control" parent="."]
+[node name="GameUI" parent="." instance=ExtResource("5_myko3")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="LevelLabel" type="Label" parent="GameUI"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -66.5
-offset_right = 66.5
-offset_bottom = 58.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.831373, 0.639216, 0.45098, 1)
-theme_override_font_sizes/font_size = 40
-text = "Level 1"
-horizontal_alignment = 1
-
-[node name="BackButton" type="Button" parent="GameUI"]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 12.0
-offset_right = 127.0
-offset_bottom = 43.0
-text = "Back to Menu"
-
-[node name="ResetButton" type="Button" parent="GameUI"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = 51.0
-offset_right = 128.0
-offset_bottom = 82.0
-text = "Reset Level"
-
-[node name="SettingButton" type="Button" parent="GameUI"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -126.0
-offset_top = 11.0
-offset_right = -12.0
-offset_bottom = 42.0
-grow_horizontal = 0
-text = "Setting"
-
-[node name="SettingPanel" type="Panel" parent="GameUI"]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -270.0
-offset_top = 48.0
-offset_right = -11.0
-offset_bottom = 142.0
-grow_horizontal = 0
-
-[node name="BGMSlider" type="HSlider" parent="GameUI/SettingPanel"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 50.0
-offset_top = 17.0
-offset_right = -10.0
-offset_bottom = 33.0
-grow_horizontal = 2
-
-[node name="SFXSlider" type="HSlider" parent="GameUI/SettingPanel"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 52.0
-offset_top = 57.0
-offset_right = -10.0
-offset_bottom = 73.0
-grow_horizontal = 2
-
-[node name="BGMLabel" type="Label" parent="GameUI/SettingPanel"]
-layout_mode = 1
-offset_left = 4.0
-offset_top = 11.0
-offset_right = 44.0
-offset_bottom = 37.0
-text = "BGM"
-horizontal_alignment = 1
-
-[node name="SFXLabel" type="Label" parent="GameUI/SettingPanel"]
-layout_mode = 1
-offset_left = 4.0
-offset_top = 50.0
-offset_right = 44.0
-offset_bottom = 76.0
-text = "SFX"
-horizontal_alignment = 1

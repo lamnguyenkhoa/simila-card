@@ -1,0 +1,159 @@
+[gd_scene load_steps=18 format=3 uid="uid://bwsmv7qyj0545"]
+
+[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="1_mex3v"]
+[ext_resource type="Script" path="res://src/scene/level/level.gd" id="1_t1sgn"]
+[ext_resource type="PackedScene" uid="uid://rhb1a4subqkb" path="res://src/card/CardSlot.tscn" id="2_32s0a"]
+[ext_resource type="Shader" path="res://src/shader/scrolling_background.gdshader" id="2_dcr5b"]
+[ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="3_c22hd"]
+[ext_resource type="PackedScene" uid="uid://csa6mt0c5l2pw" path="res://src/card/Card.tscn" id="3_prcam"]
+[ext_resource type="PackedScene" uid="uid://b7o15pcamy62d" path="res://src/scene/GameUI.tscn" id="4_1x87l"]
+[ext_resource type="Texture2D" uid="uid://cx63p77pa8q20" path="res://asset/sprite/card_sprite/uno_red_1.png" id="7_t2bqf"]
+[ext_resource type="Script" path="res://src/card/card_resource.gd" id="8_3w4tn"]
+[ext_resource type="Texture2D" uid="uid://c7fttgpsrr7hu" path="res://asset/sprite/card_sprite/uno_blue_3.png" id="9_pkglb"]
+[ext_resource type="Texture2D" uid="uid://numoee4rx8x2" path="res://asset/sprite/card_sprite/uno_red_3.png" id="10_rktv0"]
+[ext_resource type="Texture2D" uid="uid://boic010h3eemo" path="res://asset/sprite/card_sprite/uno_blue_7.png" id="11_yxfos"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p6ren"]
+shader = ExtResource("2_dcr5b")
+shader_parameter/motion = Vector2(-10, 10)
+shader_parameter/scale = 0.5
+shader_parameter/offset = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_gmsv7"]
+script = ExtResource("8_3w4tn")
+card_name = "Uno Red 1"
+card_sprite = ExtResource("7_t2bqf")
+card_number = Array[int]([1])
+card_color = Array[int]([1])
+card_tags = Array[int]([1])
+
+[sub_resource type="Resource" id="Resource_xh8yl"]
+script = ExtResource("8_3w4tn")
+card_name = "Uno Blue 7"
+card_sprite = ExtResource("11_yxfos")
+card_number = Array[int]([7])
+card_color = Array[int]([3])
+card_tags = Array[int]([1])
+
+[sub_resource type="Resource" id="Resource_yab3t"]
+script = ExtResource("8_3w4tn")
+card_name = "Uno Blue 3"
+card_sprite = ExtResource("9_pkglb")
+card_number = Array[int]([3])
+card_color = Array[int]([3])
+card_tags = Array[int]([1])
+
+[sub_resource type="Resource" id="Resource_hw2g8"]
+script = ExtResource("8_3w4tn")
+card_name = "Uno "
+card_sprite = ExtResource("10_rktv0")
+card_number = Array[int]([3])
+card_color = Array[int]([1])
+card_tags = Array[int]([1])
+
+[node name="Level1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t1sgn")
+level_id = 1
+level_description = "~Put cards with the same color or the same number next to each other~"
+allow_tag_compare = false
+
+[node name="BaseBG" type="TextureRect" parent="."]
+self_modulate = Color(1, 0.933333, 0.866667, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mex3v")
+
+[node name="AnimatedBG" type="TextureRect" parent="."]
+self_modulate = Color(1, 0.847059, 0.745098, 1)
+material = SubResource("ShaderMaterial_p6ren")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_c22hd")
+stretch_mode = 1
+flip_v = true
+
+[node name="TableCardHolder" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -422.0
+offset_top = -96.0
+offset_right = 144.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+alignment = 1
+
+[node name="CardSlot" parent="TableCardHolder" instance=ExtResource("2_32s0a")]
+layout_mode = 2
+
+[node name="Card" parent="TableCardHolder/CardSlot" instance=ExtResource("3_prcam")]
+layout_mode = 2
+offset_left = 2.5
+offset_top = 2.5
+offset_right = 112.5
+offset_bottom = 177.5
+data = SubResource("Resource_gmsv7")
+locked = true
+
+[node name="CardSlot2" parent="TableCardHolder" instance=ExtResource("2_32s0a")]
+layout_mode = 2
+
+[node name="CardSlot3" parent="TableCardHolder" instance=ExtResource("2_32s0a")]
+layout_mode = 2
+
+[node name="CardSlot4" parent="TableCardHolder" instance=ExtResource("2_32s0a")]
+layout_mode = 2
+
+[node name="Card4" parent="TableCardHolder/CardSlot4" instance=ExtResource("3_prcam")]
+layout_mode = 2
+offset_left = 2.5
+offset_top = 2.5
+offset_right = 112.5
+offset_bottom = 177.5
+data = SubResource("Resource_xh8yl")
+locked = true
+
+[node name="HandCardHolder" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -226.0
+offset_top = -84.0
+offset_right = 226.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Card2" parent="HandCardHolder" instance=ExtResource("3_prcam")]
+layout_mode = 2
+data = SubResource("Resource_yab3t")
+
+[node name="Card3" parent="HandCardHolder" instance=ExtResource("3_prcam")]
+layout_mode = 2
+data = SubResource("Resource_hw2g8")
+
+[node name="GameUI" parent="." instance=ExtResource("4_1x87l")]
+layout_mode = 1

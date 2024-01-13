@@ -1,0 +1,128 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7o15pcamy62d"]
+
+[ext_resource type="Script" path="res://src/scene/game_ui.gd" id="1_83fpk"]
+
+[node name="GameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_83fpk")
+
+[node name="LevelLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.5
+offset_top = 16.0
+offset_right = 66.5
+offset_bottom = 74.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.831373, 0.639216, 0.45098, 1)
+theme_override_font_sizes/font_size = 40
+text = "Level 1"
+horizontal_alignment = 1
+
+[node name="DescriptionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.5
+offset_top = 67.0
+offset_right = 66.5
+offset_bottom = 125.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "Level 1"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 12.0
+offset_right = 127.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+text = "Back to Menu"
+
+[node name="ResetButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 51.0
+offset_right = 128.0
+offset_bottom = 82.0
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+text = "Reset Level"
+
+[node name="SettingButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -126.0
+offset_top = 11.0
+offset_right = -12.0
+offset_bottom = 42.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+text = "Setting"
+
+[node name="SettingPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -270.0
+offset_top = 48.0
+offset_right = -11.0
+offset_bottom = 142.0
+grow_horizontal = 0
+
+[node name="BGMSlider" type="HSlider" parent="SettingPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 50.0
+offset_top = 17.0
+offset_right = -10.0
+offset_bottom = 33.0
+grow_horizontal = 2
+
+[node name="SFXSlider" type="HSlider" parent="SettingPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 52.0
+offset_top = 57.0
+offset_right = -10.0
+offset_bottom = 73.0
+grow_horizontal = 2
+
+[node name="BGMLabel" type="Label" parent="SettingPanel"]
+layout_mode = 1
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 44.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+text = "BGM"
+horizontal_alignment = 1
+
+[node name="SFXLabel" type="Label" parent="SettingPanel"]
+layout_mode = 1
+offset_left = 4.0
+offset_top = 50.0
+offset_right = 44.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+text = "SFX"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="SettingButton" to="." method="_on_setting_button_pressed"]
