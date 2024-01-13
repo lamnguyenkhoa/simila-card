@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cutp3bv5lvl4h"]
 
 [ext_resource type="Script" path="res://src/scene/level.gd" id="1_1xwms"]
-[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://sprite/square.png" id="1_v1ki3"]
+[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="2_1bppt"]
 [ext_resource type="PackedScene" uid="uid://csa6mt0c5l2pw" path="res://src/card/Card.tscn" id="2_if4od"]
 [ext_resource type="PackedScene" uid="uid://rhb1a4subqkb" path="res://src/card/CardSlot.tscn" id="3_mql0j"]
 
@@ -22,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_v1ki3")
+texture = ExtResource("2_1bppt")
 
 [node name="TableCardHolder" type="HBoxContainer" parent="."]
 layout_mode = 1

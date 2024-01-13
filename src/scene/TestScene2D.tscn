@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://doxtu43y3yfgc"]
 
-[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://sprite/square.png" id="1_jr3nh"]
+[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="1_jr3nh"]
 
 [node name="TestScene" type="Node2D"]
 

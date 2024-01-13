@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://rhb1a4subqkb"]
 
-[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://sprite/square.png" id="1_b4rte"]
+[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="1_b4rte"]
 [ext_resource type="Script" path="res://src/card/card_slot.gd" id="2_uyidu"]
 
 [node name="CardSlot" type="TextureRect"]
