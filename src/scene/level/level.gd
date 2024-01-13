@@ -13,6 +13,7 @@ class_name Level
 
 func _ready() -> void:
 	GameManager.current_level = self
+	GameManager.card_moved.connect(check_if_win_level)
 
 func move_card_hand_to_table(card: Card, card_slot: CardSlot):
 	if check_eligible(card, card_slot):
@@ -41,21 +42,23 @@ func check_eligible(card: Card, card_slot: CardSlot) -> bool:
 	var left_slot = table_card_holder.get_child(slot_idx - 1)
 	var right_slot = table_card_holder.get_child(slot_idx + 1)
 
-	if left_slot.get_child_count() > 0:
-		var left_card = left_slot.get_child(0)
+	if left_slot.check_if_already_has_card():
+		var left_card = left_slot.get_stored_card()
 		var left_res = compare_card(left_card, card)
-		if left_res == "Wrong":
+		if left_res == "Dissimilar!":
+			card_slot.show_check_result(left_res, false, true)
 			return false
 		else:
-			print("Left res ", left_res)
+			card_slot.show_check_result(left_res, true, true)
 
-	if right_slot.get_child_count() > 0:
-		var right_card = right_slot.get_child(0)
+	if right_slot.check_if_already_has_card():
+		var right_card = right_slot.get_stored_card()
 		var right_res = compare_card(right_card, card)
-		if right_res == "Wrong":
+		if right_res == "Dissimilar!":
+			card_slot.show_check_result(right_res, false, false)
 			return false
 		else:
-			print("Right res ", right_res)
+			card_slot.show_check_result(right_res, true, false)
 
 	return true
 
@@ -63,16 +66,16 @@ func compare_card(card_to_check: Card, placed_card: Card) -> String:
 	if allow_number_compare:
 		var common_numbers = intersect(card_to_check.data.card_number, placed_card.data.card_number)
 		if len(common_numbers) > 0:
-			return "Similar number!"
+			return "Similar\nnumber!"
 	if allow_color_compare:
 		var common_colors = intersect(card_to_check.data.card_color, placed_card.data.card_color)
 		if len(common_colors) > 0:
-			return "Similar color!"
+			return "Similar\ncolor!"
 	if allow_tag_compare:
 		var common_tags = intersect(card_to_check.data.card_tags, placed_card.data.card_tags)
 		if len(common_tags) > 0:
-			return "Similar type!"
-	return "Wrong"
+			return "Similar\ntype!"
+	return "Dissimilar!"
 
 
 func intersect(array1, array2):
@@ -81,3 +84,12 @@ func intersect(array1, array2):
 		if array2.has(item):
 			intersection.append(item)
 	return intersection
+
+func check_if_win_level(_card: Card):
+	if hand_card_holder.get_child_count() == 0:
+		for child in table_card_holder.get_children():
+			var card = child.get_stored_card()
+			if card != null:
+				card.set_locked()
+
+		GameManager.finish_level()

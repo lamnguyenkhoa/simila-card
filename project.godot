@@ -21,7 +21,7 @@ GameManager="*res://src/singleton/GameManager.tscn"
 
 [gui]
 
-theme/custom_font="res://asset/font/CFCrayons-Regular.ttf"
+theme/custom_font="res://asset/font/Glittery Snowfall.ttf"
 
 [input]
 

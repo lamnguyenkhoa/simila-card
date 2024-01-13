@@ -11,5 +11,41 @@ offset_bottom = 180.0
 texture = ExtResource("1_b4rte")
 script = ExtResource("2_uyidu")
 
+[node name="LeftLabel" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+offset_left = -23.0
+offset_top = -51.0
+offset_right = 27.0
+offset_bottom = -1.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Similar
+number!"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="RightLabel" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -26.0
+offset_top = -50.0
+offset_right = 24.0
+grow_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Similar
+number!"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HideLabelTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="HideLabelTimer" to="." method="_on_hide_label_timer_timeout"]

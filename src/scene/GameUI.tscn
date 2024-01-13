@@ -1,6 +1,52 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7o15pcamy62d"]
+[gd_scene load_steps=5 format=3 uid="uid://b7o15pcamy62d"]
 
 [ext_resource type="Script" path="res://src/scene/game_ui.gd" id="1_83fpk"]
+[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="2_5e0wb"]
+
+[sub_resource type="Animation" id="Animation_oy8u2"]
+resource_name = "open_level_finish_panel"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelFinishPopup:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(422.5, -194), Vector2(422.5, 241)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelFinishPanel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LevelFinishPanel:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jahyd"]
+_data = {
+"open_level_finish_panel": SubResource("Animation_oy8u2")
+}
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -23,6 +69,7 @@ offset_right = 66.5
 offset_bottom = 74.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.831373, 0.639216, 0.45098, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "Level 1"
 horizontal_alignment = 1
@@ -38,9 +85,21 @@ offset_right = 66.5
 offset_bottom = 125.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
-text = "Level 1"
+text = "~Welcome~"
 horizontal_alignment = 1
+
+[node name="LevelFinishPanel" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0
@@ -49,6 +108,8 @@ offset_top = 12.0
 offset_right = 127.0
 offset_bottom = 43.0
 theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 text = "Back to Menu"
 
 [node name="ResetButton" type="Button" parent="."]
@@ -58,6 +119,8 @@ offset_top = 51.0
 offset_right = 128.0
 offset_bottom = 82.0
 theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 text = "Reset Level"
 
 [node name="SettingButton" type="Button" parent="."]
@@ -71,6 +134,8 @@ offset_right = -12.0
 offset_bottom = 42.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 text = "Setting"
 
 [node name="SettingPanel" type="Panel" parent="."]
@@ -107,22 +172,111 @@ grow_horizontal = 2
 
 [node name="BGMLabel" type="Label" parent="SettingPanel"]
 layout_mode = 1
-offset_left = 4.0
-offset_top = 11.0
-offset_right = 44.0
-offset_bottom = 37.0
-theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+offset_left = 9.0
+offset_top = 13.0
+offset_right = 49.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
 text = "BGM"
 horizontal_alignment = 1
 
 [node name="SFXLabel" type="Label" parent="SettingPanel"]
 layout_mode = 1
-offset_left = 4.0
-offset_top = 50.0
-offset_right = 44.0
-offset_bottom = 76.0
-theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+offset_left = 9.0
+offset_top = 52.0
+offset_right = 49.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
 text = "SFX"
 horizontal_alignment = 1
 
+[node name="LevelFinishPopup" type="TextureRect" parent="."]
+self_modulate = Color(1, 0.847059, 0.745098, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -153.5
+offset_top = -518.0
+offset_right = 153.5
+offset_bottom = -352.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5e0wb")
+
+[node name="TextureRect" type="TextureRect" parent="LevelFinishPopup"]
+self_modulate = Color(1, 0.933333, 0.866667, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -10.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5e0wb")
+
+[node name="Title" type="Label" parent="LevelFinishPopup"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -69.0
+offset_top = 11.0
+offset_right = 69.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Level finished"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelFinishPopup"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -81.5
+offset_top = -62.0
+offset_right = 81.5
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="BackButton" type="Button" parent="LevelFinishPopup/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+text = "Back to Menu"
+
+[node name="NextButton" type="Button" parent="LevelFinishPopup/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+text = "Next Level"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jahyd")
+}
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="LevelFinishPopup/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="LevelFinishPopup/HBoxContainer/NextButton" to="." method="_on_next_button_pressed"]

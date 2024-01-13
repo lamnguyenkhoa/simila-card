@@ -93,13 +93,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -422.0
-offset_top = -96.0
-offset_right = 144.0
-offset_bottom = 79.0
+offset_left = -283.0
+offset_top = -98.5
+offset_right = 283.0
+offset_bottom = 81.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.5, 1.5)
 alignment = 1
 
 [node name="CardSlot" parent="TableCardHolder" instance=ExtResource("2_32s0a")]
