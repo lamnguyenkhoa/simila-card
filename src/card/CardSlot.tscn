@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://rhb1a4subqkb"]
+
+[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://sprite/square.png" id="1_b4rte"]
+[ext_resource type="Script" path="res://src/card/card_slot.gd" id="2_uyidu"]
+
+[node name="CardSlot" type="TextureRect"]
+self_modulate = Color(0.188235, 0.188235, 0.188235, 0.34902)
+custom_minimum_size = Vector2(115, 180)
+offset_right = 115.0
+offset_bottom = 180.0
+texture = ExtResource("1_b4rte")
+script = ExtResource("2_uyidu")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

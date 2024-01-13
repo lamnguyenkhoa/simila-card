@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqwfl4qfjkf26"]
+
+[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://sprite/square.png" id="1_68jgx"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(0.996078, 0.980392, 0.878431, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_68jgx")

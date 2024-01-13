@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://csa6mt0c5l2pw"]
+
+[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://sprite/square.png" id="1_p8mai"]
+[ext_resource type="Script" path="res://src/card/card.gd" id="2_nfjgt"]
+[ext_resource type="Script" path="res://src/card/card_resource.gd" id="3_qgpp5"]
+
+[sub_resource type="Resource" id="Resource_36jcm"]
+script = ExtResource("3_qgpp5")
+card_name = ""
+card_number = Array[int]([])
+card_color = Array[int]([])
+card_tags = Array[int]([])
+
+[node name="Card" type="Control"]
+custom_minimum_size = Vector2(110, 175)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_nfjgt")
+data = SubResource("Resource_36jcm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 110.0
+offset_bottom = 175.0
+texture = ExtResource("1_p8mai")
+
+[connection signal="mouse_entered" from="TextureRect" to="." method="_on_texture_rect_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRect" to="." method="_on_texture_rect_mouse_exited"]
