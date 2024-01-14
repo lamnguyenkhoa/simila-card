@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 EnumAutoload="*res://src/singleton/enum_autoload.gd"
 GameManager="*res://src/singleton/GameManager.tscn"
 
+[display]
+
+window/size/viewport_width=1366
+window/size/viewport_height=768
+
 [gui]
 
 theme/custom_font="res://asset/font/Glittery Snowfall.ttf"
