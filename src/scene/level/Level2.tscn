@@ -27,7 +27,8 @@ card_name = "uno green 4"
 card_sprite = ExtResource("9_14btd")
 card_number = Array[int]([4])
 card_color = Array[int]([2])
-card_tags = Array[int]([1])
+card_symbol = Array[int]([])
+card_origin = Array[int]([])
 
 [sub_resource type="Resource" id="Resource_dkv3q"]
 script = ExtResource("8_smavm")
@@ -35,7 +36,8 @@ card_name = "uno yellow plus 2"
 card_sprite = ExtResource("11_j3g81")
 card_number = Array[int]([2])
 card_color = Array[int]([4])
-card_tags = Array[int]([1])
+card_symbol = Array[int]([])
+card_origin = Array[int]([])
 
 [sub_resource type="Resource" id="Resource_gim1o"]
 script = ExtResource("8_smavm")
@@ -43,7 +45,8 @@ card_name = "uno skip red"
 card_sprite = ExtResource("13_vq20w")
 card_number = Array[int]([])
 card_color = Array[int]([1])
-card_tags = Array[int]([1])
+card_symbol = Array[int]([])
+card_origin = Array[int]([])
 
 [sub_resource type="Resource" id="Resource_3ofq6"]
 script = ExtResource("8_smavm")
@@ -51,7 +54,8 @@ card_name = "uno green 8"
 card_sprite = ExtResource("7_arkto")
 card_number = Array[int]([8])
 card_color = Array[int]([2])
-card_tags = Array[int]([1])
+card_symbol = Array[int]([])
+card_origin = Array[int]([])
 
 [sub_resource type="Resource" id="Resource_uesex"]
 script = ExtResource("8_smavm")
@@ -59,7 +63,8 @@ card_name = "uno red 2"
 card_sprite = ExtResource("12_qwthl")
 card_number = Array[int]([2])
 card_color = Array[int]([1])
-card_tags = Array[int]([1])
+card_symbol = Array[int]([])
+card_origin = Array[int]([])
 
 [sub_resource type="Resource" id="Resource_s5oju"]
 script = ExtResource("8_smavm")
@@ -67,7 +72,8 @@ card_name = "uno yellow 4"
 card_sprite = ExtResource("10_txb20")
 card_number = Array[int]([4])
 card_color = Array[int]([4])
-card_tags = Array[int]([1])
+card_symbol = Array[int]([])
+card_origin = Array[int]([])
 
 [node name="Level2" type="Control"]
 layout_mode = 3
@@ -79,7 +85,6 @@ grow_vertical = 2
 script = ExtResource("1_g8jdg")
 level_id = 1
 level_description = "~Remember, similar NUMBER~"
-allow_tag_compare = false
 
 [node name="BaseBG" type="TextureRect" parent="."]
 self_modulate = Color(1, 0.933333, 0.866667, 1)

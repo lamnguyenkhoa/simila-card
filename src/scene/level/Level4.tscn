@@ -32,7 +32,6 @@ grow_vertical = 2
 script = ExtResource("1_ahuam")
 level_id = 3
 level_description = "~Caution: Similar symbol is not counted (yet)~"
-allow_tag_compare = false
 
 [node name="BaseBG" type="TextureRect" parent="."]
 self_modulate = Color(1, 0.933333, 0.866667, 1)

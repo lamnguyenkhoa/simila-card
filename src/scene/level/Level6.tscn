@@ -1,0 +1,146 @@
+[gd_scene load_steps=17 format=3 uid="uid://cshuif28gjxuv"]
+
+[ext_resource type="Script" path="res://src/scene/level/level.gd" id="1_t1llq"]
+[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="2_sl6rf"]
+[ext_resource type="Shader" path="res://src/shader/scrolling_background.gdshader" id="3_n8j7e"]
+[ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="4_8vrfj"]
+[ext_resource type="PackedScene" uid="uid://rhb1a4subqkb" path="res://src/card/CardSlot.tscn" id="5_d7lpn"]
+[ext_resource type="PackedScene" uid="uid://csa6mt0c5l2pw" path="res://src/card/Card.tscn" id="6_b8jfj"]
+[ext_resource type="Resource" uid="uid://c41b331cnmhq8" path="res://src/scene/level/playing_heart_3.tres" id="7_qc72p"]
+[ext_resource type="Resource" uid="uid://cl3vmd0cil1xm" path="res://src/card/data/uno_red_8.tres" id="8_31grn"]
+[ext_resource type="Script" path="res://src/card/card_resource.gd" id="8_80pju"]
+[ext_resource type="Resource" uid="uid://bx2ljymnncpb8" path="res://src/scene/level/playing_spade_8.tres" id="9_lgbua"]
+[ext_resource type="Resource" uid="uid://hp0q0k16opbt" path="res://src/card/data/uno_wild.tres" id="10_pjcri"]
+[ext_resource type="Resource" uid="uid://hw8av7sy3j4u" path="res://src/card/data/uno_yellow_4.tres" id="11_a8n07"]
+[ext_resource type="Texture2D" uid="uid://mnkvlxlhpegq" path="res://asset/sprite/card_sprite/yugioh_white_4.png" id="12_trf6m"]
+[ext_resource type="PackedScene" uid="uid://b7o15pcamy62d" path="res://src/scene/GameUI.tscn" id="13_pusv4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p6ren"]
+shader = ExtResource("3_n8j7e")
+shader_parameter/motion = Vector2(-10, 10)
+shader_parameter/scale = 0.5
+shader_parameter/offset = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_iiv03"]
+script = ExtResource("8_80pju")
+card_name = "yugioh white 4"
+card_sprite = ExtResource("12_trf6m")
+card_number = Array[int]([4])
+card_color = Array[int]([5])
+card_symbol = Array[int]([])
+card_origin = Array[int]([2])
+
+[node name="Level6" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t1llq")
+level_id = 5
+level_description = "~The red circle with yellow star is the level of the monster in Yugi*h cards, just saying~"
+allow_symbol_compare = true
+
+[node name="BaseBG" type="TextureRect" parent="."]
+self_modulate = Color(1, 0.933333, 0.866667, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_sl6rf")
+
+[node name="AnimatedBG" type="TextureRect" parent="."]
+self_modulate = Color(1, 0.847059, 0.745098, 1)
+material = SubResource("ShaderMaterial_p6ren")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_8vrfj")
+stretch_mode = 1
+flip_v = true
+
+[node name="TableCardHolder" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -98.5
+offset_right = 283.0
+offset_bottom = 81.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="CardSlot" parent="TableCardHolder" instance=ExtResource("5_d7lpn")]
+layout_mode = 2
+
+[node name="CardSlot2" parent="TableCardHolder" instance=ExtResource("5_d7lpn")]
+layout_mode = 2
+
+[node name="CardSlot3" parent="TableCardHolder" instance=ExtResource("5_d7lpn")]
+layout_mode = 2
+
+[node name="CardSlot4" parent="TableCardHolder" instance=ExtResource("5_d7lpn")]
+layout_mode = 2
+
+[node name="Card4" parent="TableCardHolder/CardSlot4" instance=ExtResource("6_b8jfj")]
+layout_mode = 2
+offset_left = 2.5
+offset_top = 2.5
+offset_right = 112.5
+offset_bottom = 177.5
+data = ExtResource("10_pjcri")
+locked = true
+
+[node name="CardSlot5" parent="TableCardHolder" instance=ExtResource("5_d7lpn")]
+layout_mode = 2
+
+[node name="CardSlot6" parent="TableCardHolder" instance=ExtResource("5_d7lpn")]
+layout_mode = 2
+
+[node name="HandCardHolder" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -226.0
+offset_top = -84.0
+offset_right = 226.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Card" parent="HandCardHolder" instance=ExtResource("6_b8jfj")]
+layout_mode = 2
+data = ExtResource("7_qc72p")
+
+[node name="Card2" parent="HandCardHolder" instance=ExtResource("6_b8jfj")]
+layout_mode = 2
+data = ExtResource("8_31grn")
+
+[node name="Card3" parent="HandCardHolder" instance=ExtResource("6_b8jfj")]
+layout_mode = 2
+data = ExtResource("9_lgbua")
+
+[node name="Card5" parent="HandCardHolder" instance=ExtResource("6_b8jfj")]
+layout_mode = 2
+data = ExtResource("11_a8n07")
+
+[node name="Card6" parent="HandCardHolder" instance=ExtResource("6_b8jfj")]
+layout_mode = 2
+data = SubResource("Resource_iiv03")
+
+[node name="GameUI" parent="." instance=ExtResource("13_pusv4")]
+layout_mode = 1
