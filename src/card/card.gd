@@ -32,6 +32,7 @@ func _input(event: InputEvent) -> void:
 					GameManager.selected_card = null
 				GameManager.selected_card = self
 				selected = true
+				SoundManager.play_card_select_sfx()
 			else:
 				set_unselected()
 				GameManager.selected_card = null
@@ -60,6 +61,8 @@ func _on_texture_rect_mouse_entered() -> void:
 	if locked:
 		return
 
+	if not selected:
+		SoundManager.play_card_hover_sfx()
 	var tween = get_tree().create_tween()
 	if placed:
 		tween.tween_property(card_texture, "position", texture_original_pos - Vector2(0, 10), 0.2).set_trans(Tween.TRANS_LINEAR)

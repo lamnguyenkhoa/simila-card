@@ -11,6 +11,8 @@ var correct_sfx = preload("res://asset/sfx/351564__bertrof__game-sound-correct-w
 var wrong_sfx = preload("res://asset/sfx/588654__majetheman__vine-boom-sound-effect.ogg")
 var button_hover_sfx = preload("res://asset/sfx/620568__eminyildirim__ui-click.ogg")
 var button_click_sfx = preload("res://asset/sfx/683587__yehawsnail__bubble-pop.ogg")
+var card_hover_sfx = preload("res://asset/sfx/217501__vkproduktion__shuffling-cards-hover.ogg")
+var card_select_sfx = preload("res://asset/sfx/217501__vkproduktion__shuffling-cards-select.ogg")
 
 var sound_process_mode: ProcessMode:
 	set(value):
@@ -141,8 +143,16 @@ func play_button_click_sfx():
 
 func play_button_hover_sfx():
 	SoundManager.play_sound(button_hover_sfx, "SFX")
+
 func play_correct_sfx():
 	SoundManager.play_sound(correct_sfx, "SFX")
 
 func play_wrong_sfx():
 	SoundManager.play_sound(wrong_sfx, "SFX")
+
+func play_card_hover_sfx():
+	SoundManager.play_sound(card_hover_sfx, "SFX")
+
+func play_card_select_sfx():
+	SoundManager.play_sound(card_select_sfx, "SFX")
+	

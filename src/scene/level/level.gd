@@ -17,6 +17,7 @@ func _ready() -> void:
 
 func move_card_hand_to_table(card: Card, card_slot: CardSlot):
 	if check_eligible(card, card_slot):
+		SoundManager.play_correct_sfx()
 		card.get_parent().remove_child(card)
 		card_slot.add_child(card)
 		card.placed = true
@@ -25,12 +26,14 @@ func move_card_hand_to_table(card: Card, card_slot: CardSlot):
 		GameManager.selected_card = null
 		GameManager.emit_signal("card_moved", card)
 	else:
+		SoundManager.play_wrong_sfx()
 		card.set_unselected()
 
 func move_card_table_to_hand(card: Card):
 	if not card.placed or not card.get_parent() is CardSlot:
 		return
 
+	SoundManager.play_card_select_sfx()
 	card.placed = false
 	card.get_parent().remove_child(card)
 	hand_card_holder.add_child(card)

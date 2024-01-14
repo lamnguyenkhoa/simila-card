@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cqwfl4qfjkf26"]
+[gd_scene load_steps=16 format=3 uid="uid://cqwfl4qfjkf26"]
 
 [ext_resource type="Script" path="res://src/scene/start_menu.gd" id="1_4utae"]
 [ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="1_x3n2w"]
 [ext_resource type="AudioStream" uid="uid://bp10mmdvh0ubx" path="res://asset/music/Snipperclips_Music_Noisy_Notebook_A.ogg" id="2_42gn6"]
 [ext_resource type="Shader" path="res://src/shader/scrolling_background.gdshader" id="2_ckg1j"]
+[ext_resource type="Texture2D" uid="uid://kp1l5kgg8y6d" path="res://asset/sprite/construction_icon.png" id="3_pg7xs"]
 [ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="3_y7v1b"]
 [ext_resource type="Texture2D" uid="uid://djls4rwur6bld" path="res://asset/sprite/title.png" id="4_hvxp1"]
 [ext_resource type="PackedScene" uid="uid://bcgbjefvhsgef" path="res://src/scene/SettingUI.tscn" id="5_k5eah"]
@@ -31,6 +32,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelSelect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_8su1i"]
 resource_name = "ready"
@@ -44,7 +57,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(55, -400), Vector2(55, 60)]
+"values": [Vector2(-12, -400), Vector2(-12, 202)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -56,7 +69,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(249, 700), Vector2(249, 300)]
+"values": [Vector2(185, 924), Vector2(185, 425)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_axaek"]
@@ -97,6 +110,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4utae")
 bgm = ExtResource("2_42gn6")
+construction_img = ExtResource("3_pg7xs")
 
 [node name="BaseBG" type="TextureRect" parent="."]
 self_modulate = Color(1, 0.933333, 0.866667, 1)
@@ -148,10 +162,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = -11.0
-offset_top = -140.0
-offset_right = 501.0
-offset_bottom = 116.0
+offset_left = -12.0
+offset_top = -784.0
+offset_right = 500.0
+offset_bottom = -528.0
 grow_vertical = 2
 pivot_offset = Vector2(256, 0)
 texture = ExtResource("4_hvxp1")
@@ -161,10 +175,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 178.0
-offset_top = 50.0
-offset_right = 263.0
-offset_bottom = 160.001
+offset_left = 185.0
+offset_top = 540.0
+offset_right = 270.0
+offset_bottom = 650.001
 grow_vertical = 2
 
 [node name="StartButton" type="Button" parent="Control/VBoxContainer"]
@@ -194,6 +208,7 @@ text = "Quit"
 flat = true
 
 [node name="LevelSelect" type="Control" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -361,6 +376,7 @@ disabled = true
 text = "10"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "ready"
 libraries = {
 "": SubResource("AnimationLibrary_axaek")
 }

@@ -1,6 +1,7 @@
 extends Control
 
 @export var bgm: AudioStream
+@export var construction_img: Texture2D
 
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var level_button_container = $LevelSelect/GridContainer
@@ -19,6 +20,12 @@ func _ready() -> void:
 			button.disabled = false
 		else:
 			button.disabled = true
+		if i >= len(GameManager.level_list):
+			button.disabled = true
+			button.text = ""
+			button.tooltip_text = "In construction"
+			button.icon = construction_img
+			button.expand_icon = true
 
 func _on_start_button_pressed() -> void:
 	_play_button_click_sfx()
