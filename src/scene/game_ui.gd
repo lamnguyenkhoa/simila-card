@@ -4,7 +4,6 @@ class_name GameUI
 
 @onready var level_label: Label = $LevelLabel
 @onready var description_label: Label = $DescriptionLabel
-@onready var setting_panel: Panel = $SettingPanel
 @onready var level_finish_panel = $LevelFinishPanel
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var next_level_button = $LevelFinishPopup/HBoxContainer/NextButton
@@ -28,21 +27,21 @@ func _on_level_finished(level_id: int):
 		next_level_button.visible  = false
 		print("Out of level, back to menu pls")
 
-
-func _on_setting_button_pressed() -> void:
-	setting_panel.visible = !setting_panel.visible
-
-
 func _on_next_button_pressed() -> void:
+	SoundManager.play_button_click_sfx()
 	if next_level_scene != null:
 		get_tree().change_scene_to_packed(next_level_scene)
 
-
 func _on_reset_button_pressed() -> void:
 	get_tree().reload_current_scene()
-
+	SoundManager.play_button_click_sfx()
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_packed(GameManager.start_menu)
+	SoundManager.play_button_click_sfx()
 
+func _play_button_hover_sfx():
+	SoundManager.play_button_hover_sfx()
 
+func _play_button_click_sfx():
+	SoundManager.play_button_click_sfx()

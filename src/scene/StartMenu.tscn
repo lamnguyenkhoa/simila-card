@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqwfl4qfjkf26"]
+[gd_scene load_steps=15 format=3 uid="uid://cqwfl4qfjkf26"]
 
 [ext_resource type="Script" path="res://src/scene/start_menu.gd" id="1_4utae"]
 [ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="1_x3n2w"]
+[ext_resource type="AudioStream" uid="uid://bp10mmdvh0ubx" path="res://asset/music/Snipperclips_Music_Noisy_Notebook_A.ogg" id="2_42gn6"]
 [ext_resource type="Shader" path="res://src/shader/scrolling_background.gdshader" id="2_ckg1j"]
 [ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="3_y7v1b"]
 [ext_resource type="Texture2D" uid="uid://djls4rwur6bld" path="res://asset/sprite/title.png" id="4_hvxp1"]
+[ext_resource type="PackedScene" uid="uid://bcgbjefvhsgef" path="res://src/scene/SettingUI.tscn" id="5_k5eah"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b0enp"]
 shader = ExtResource("2_ckg1j")
@@ -94,6 +96,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4utae")
+bgm = ExtResource("2_42gn6")
 
 [node name="BaseBG" type="TextureRect" parent="."]
 self_modulate = Color(1, 0.933333, 0.866667, 1)
@@ -117,6 +120,11 @@ grow_vertical = 2
 texture = ExtResource("3_y7v1b")
 stretch_mode = 1
 flip_v = true
+
+[node name="SettingUI" parent="." instance=ExtResource("5_k5eah")]
+layout_mode = 1
+offset_left = -274.0
+offset_bottom = 155.0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
@@ -193,8 +201,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 195.0
-offset_right = 195.0
+offset_left = 143.0
+offset_right = 143.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -211,7 +219,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
-columns = 6
+columns = 5
 
 [node name="Button" type="Button" parent="LevelSelect/GridContainer"]
 custom_minimum_size = Vector2(64, 64)
@@ -352,118 +360,6 @@ theme_override_font_sizes/font_size = 32
 disabled = true
 text = "10"
 
-[node name="Button11" type="Button" parent="LevelSelect/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 32
-disabled = true
-text = "11"
-
-[node name="Button12" type="Button" parent="LevelSelect/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 32
-disabled = true
-text = "12"
-
-[node name="Button13" type="Button" parent="LevelSelect/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 32
-disabled = true
-text = "13"
-
-[node name="Button14" type="Button" parent="LevelSelect/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 32
-disabled = true
-text = "14"
-
-[node name="Button15" type="Button" parent="LevelSelect/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 32
-disabled = true
-text = "15"
-
-[node name="Button16" type="Button" parent="LevelSelect/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 32
-disabled = true
-text = "16"
-
-[node name="Button17" type="Button" parent="LevelSelect/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 32
-disabled = true
-text = "17"
-
-[node name="Button18" type="Button" parent="LevelSelect/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 32
-disabled = true
-text = "18"
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_axaek")
@@ -475,7 +371,9 @@ libraries = {
 "": SubResource("AnimationLibrary_xtkci")
 }
 
+[connection signal="mouse_entered" from="Control/VBoxContainer/StartButton" to="." method="_play_button_hover_sfx"]
 [connection signal="pressed" from="Control/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/QuitButton" to="." method="_play_button_hover_sfx"]
 [connection signal="pressed" from="Control/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="LevelSelect/GridContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="LevelSelect/GridContainer/Button2" to="." method="_on_button_2_pressed"]
