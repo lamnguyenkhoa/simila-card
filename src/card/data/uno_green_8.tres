@@ -9,4 +9,5 @@ card_name = "uno green 8"
 card_sprite = ExtResource("1_pk7gw")
 card_number = Array[int]([8])
 card_color = Array[int]([2])
-card_tags = Array[int]([1])
+card_symbol = Array[int]([])
+card_origin = Array[int]([1])

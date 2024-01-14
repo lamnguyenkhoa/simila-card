@@ -13,9 +13,20 @@ enum CardColor {
 	BLACK
 }
 
-enum CardTag {
+enum CardSymbol {
+	NONE,
+	UNO_SKIP,
+	UNO_SWITCH,
+	PLAYING_CARD_DIAMOND,
+	PLAYING_CARD_CLUB,
+	PLAYING_CARD_HEART,
+	PLAYING_CARD_SPADE,
+}
+
+enum CardOrigin {
 	NONE,
 	UNO,
 	YUGIOH,
 	MAGIC_GATHERING,
+	PLAYING_CARD
 }

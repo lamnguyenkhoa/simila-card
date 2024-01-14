@@ -37,6 +37,14 @@ card_number = Array[int]([2])
 card_color = Array[int]([4])
 card_tags = Array[int]([1])
 
+[sub_resource type="Resource" id="Resource_gim1o"]
+script = ExtResource("8_smavm")
+card_name = "uno skip red"
+card_sprite = ExtResource("13_vq20w")
+card_number = Array[int]([])
+card_color = Array[int]([1])
+card_tags = Array[int]([1])
+
 [sub_resource type="Resource" id="Resource_3ofq6"]
 script = ExtResource("8_smavm")
 card_name = "uno green 8"
@@ -61,14 +69,6 @@ card_number = Array[int]([4])
 card_color = Array[int]([4])
 card_tags = Array[int]([1])
 
-[sub_resource type="Resource" id="Resource_gim1o"]
-script = ExtResource("8_smavm")
-card_name = "uno skip red"
-card_sprite = ExtResource("13_vq20w")
-card_number = Array[int]([])
-card_color = Array[int]([1])
-card_tags = Array[int]([1])
-
 [node name="Level2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -78,8 +78,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_g8jdg")
 level_id = 1
-level_description = "~Same as before, but a bit harder~
-~Remember, similar NUMBER~"
+level_description = "~Remember, similar NUMBER~"
 allow_tag_compare = false
 
 [node name="BaseBG" type="TextureRect" parent="."]
@@ -166,6 +165,10 @@ alignment = 1
 layout_mode = 2
 data = SubResource("Resource_dkv3q")
 
+[node name="Card6" parent="HandCardHolder" instance=ExtResource("6_whshx")]
+layout_mode = 2
+data = SubResource("Resource_gim1o")
+
 [node name="Card" parent="HandCardHolder" instance=ExtResource("6_whshx")]
 layout_mode = 2
 data = SubResource("Resource_3ofq6")
@@ -177,10 +180,6 @@ data = SubResource("Resource_uesex")
 [node name="Card3" parent="HandCardHolder" instance=ExtResource("6_whshx")]
 layout_mode = 2
 data = SubResource("Resource_s5oju")
-
-[node name="Card6" parent="HandCardHolder" instance=ExtResource("6_whshx")]
-layout_mode = 2
-data = SubResource("Resource_gim1o")
 
 [node name="GameUI" parent="." instance=ExtResource("12_qkehs")]
 layout_mode = 1

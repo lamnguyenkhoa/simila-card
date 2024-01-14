@@ -9,4 +9,5 @@ card_name = "uno wild"
 card_sprite = ExtResource("1_yctdm")
 card_number = Array[int]([])
 card_color = Array[int]([1, 3, 2, 4, 6])
-card_tags = Array[int]([1])
+card_symbol = Array[int]([])
+card_origin = Array[int]([1])

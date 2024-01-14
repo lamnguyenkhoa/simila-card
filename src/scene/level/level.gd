@@ -6,7 +6,8 @@ class_name Level
 
 @export var allow_number_compare = true
 @export var allow_color_compare = true
-@export var allow_tag_compare = true
+@export var allow_symbol_compare = false
+@export var allow_origin_compare = false
 
 @onready var table_card_holder = $TableCardHolder
 @onready var hand_card_holder = $HandCardHolder
@@ -79,9 +80,13 @@ func compare_card(card_to_check: Card, placed_card: Card) -> String:
 		var common_colors = intersect(card_to_check.data.card_color, placed_card.data.card_color)
 		if len(common_colors) > 0:
 			return "Similar\ncolor!"
-	if allow_tag_compare:
-		var common_tags = intersect(card_to_check.data.card_tags, placed_card.data.card_tags)
-		if len(common_tags) > 0:
+	if allow_symbol_compare:
+		var common_symbols = intersect(card_to_check.data.card_symbol, placed_card.data.card_symbol)
+		if len(common_symbols) > 0:
+			return "Similar\ntype!"
+	if allow_origin_compare:
+		var common_origins = intersect(card_to_check.data.card_origin, placed_card.data.card_origin)
+		if len(common_origins) > 0:
 			return "Similar\ntype!"
 	return "Dissimilar!"
 
