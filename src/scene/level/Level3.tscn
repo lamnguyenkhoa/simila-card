@@ -29,7 +29,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3cmh3")
 level_id = 2
-level_description = "~Introducing the wild card~"
+level_description = "~The infamous card is here~"
 allow_tag_compare = false
 
 [node name="BaseBG" type="TextureRect" parent="."]

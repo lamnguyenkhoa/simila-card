@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://dvn0msoovc18i"]
+
+[ext_resource type="Texture2D" uid="uid://dpr1x0bq1cw82" path="res://asset/sprite/card_sprite/uno_blue_skip.png" id="1_vvosx"]
+[ext_resource type="Script" path="res://src/card/card_resource.gd" id="2_yaysc"]
+
+[resource]
+script = ExtResource("2_yaysc")
+card_name = "uno blue skip"
+card_sprite = ExtResource("1_vvosx")
+card_number = Array[int]([])
+card_color = Array[int]([3])
+card_tags = Array[int]([1])

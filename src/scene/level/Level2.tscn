@@ -78,7 +78,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_g8jdg")
 level_id = 1
-level_description = "~Same as before, but a bit harder~"
+level_description = "~Same as before, but a bit harder~
+~Remember, similar NUMBER~"
 allow_tag_compare = false
 
 [node name="BaseBG" type="TextureRect" parent="."]
