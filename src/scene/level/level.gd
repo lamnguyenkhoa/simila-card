@@ -15,7 +15,8 @@ class_name Level
 func _ready() -> void:
 	GameManager.update_current_level(self)
 	GameManager.card_moved.connect(check_if_win_level)
-
+	shuffle_hand_cards()
+	
 func move_card_hand_to_table(card: Card, card_slot: CardSlot):
 	if check_eligible(card, card_slot):
 		SoundManager.play_correct_sfx()
@@ -97,6 +98,23 @@ func intersect(array1, array2):
 		if array2.has(item):
 			intersection.append(item)
 	return intersection
+
+func shuffle_hand_cards():
+	var children_count = hand_card_holder.get_child_count()
+	if children_count < 2:
+		return
+
+	var children_array = []
+	for i in range(children_count):
+		children_array.append(hand_card_holder.get_child(i))
+	children_array.shuffle()
+
+	for i in range(children_count):
+		hand_card_holder.remove_child(children_array[i])
+		
+	for i in range(children_count):
+		hand_card_holder.add_child(children_array[i])
+
 
 func check_if_win_level(_card: Card):
 	if hand_card_holder.get_child_count() == 0:

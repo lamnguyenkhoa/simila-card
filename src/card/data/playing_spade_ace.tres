@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://21is2aodissa"]
+
+[ext_resource type="Texture2D" uid="uid://ccx5v3gprmste" path="res://asset/sprite/card_sprite/playing_spade_ace.png" id="1_fs47u"]
+[ext_resource type="Script" path="res://src/card/card_resource.gd" id="2_7w0eo"]
+
+[resource]
+script = ExtResource("2_7w0eo")
+card_name = "playing space ace"
+card_sprite = ExtResource("1_fs47u")
+card_number = Array[int]([])
+card_color = Array[int]([6])
+card_symbol = Array[int]([6])
+card_origin = Array[int]([4])
