@@ -59,6 +59,9 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_83fpk")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(686, 378)
+
 [node name="LevelLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -224,6 +227,8 @@ offset_bottom = 307.0
 theme_override_colors/font_color = Color(0.721569, 0.721569, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
+
+[node name="Camera2D2" type="Camera2D" parent="."]
 
 [connection signal="mouse_entered" from="BackButton" to="." method="_play_button_hover_sfx"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

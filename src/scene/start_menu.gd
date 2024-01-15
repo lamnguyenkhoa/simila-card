@@ -8,21 +8,26 @@ extends Control
 var opened_level_select = false
 
 func _ready() -> void:
-	# Unlock levels
 	for i in range(level_button_container.get_child_count()):
 		var button = level_button_container.get_child(i) as Button
 		button.pressed.connect(_play_button_click_sfx)
 		button.mouse_entered.connect(_play_button_hover_sfx)
+
+		# Unlock played level
 		if i <= GameManager.highest_level_id:
 			button.disabled = false
 		else:
 			button.disabled = true
+
+		# Add in-construction icon to levels not created
 		if i >= len(GameManager.level_list):
 			button.disabled = true
 			button.text = ""
 			button.tooltip_text = "In construction"
 			button.icon = construction_img
 			button.expand_icon = true
+		else:
+			button.pressed.connect(func ():  get_tree().change_scene_to_packed(GameManager.level_list[i]))
 
 func _on_start_button_pressed() -> void:
 	_play_button_click_sfx()

@@ -12,6 +12,8 @@ var selected_card: Card
 var highest_level_id: int = 0 # Level_id equal or lower than this are unlocked
 
 func _ready() -> void:
+	SoundManager.set_sound_volume(0.8)
+	SoundManager.set_music_volume(0.8)
 	SoundManager.play_music(bgm)
 
 func update_current_level(level: Level):

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://gdhtf02qrf1c"]
+
+[ext_resource type="Texture2D" uid="uid://c1qkvb8vyb6nq" path="res://asset/sprite/card_sprite/yugioh/yugioh_blue_6.png" id="1_y0ydd"]
+[ext_resource type="Script" path="res://src/card/card_resource.gd" id="2_4gkjs"]
+
+[resource]
+script = ExtResource("2_4gkjs")
+card_name = "yugioh blue 6"
+card_sprite = ExtResource("1_y0ydd")
+card_number = Array[int]([6])
+card_color = Array[int]([3])
+card_symbol = Array[int]([])
+card_origin = Array[int]([2])

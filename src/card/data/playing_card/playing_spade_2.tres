@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://bu15vwghk5sqe"]
+
+[ext_resource type="Texture2D" uid="uid://do17yh2p4eu4o" path="res://asset/sprite/card_sprite/playing_card/playing_spade_2.png" id="1_jkprn"]
+[ext_resource type="Script" path="res://src/card/card_resource.gd" id="2_i6fsr"]
+
+[resource]
+script = ExtResource("2_i6fsr")
+card_name = "playing spade 2"
+card_sprite = ExtResource("1_jkprn")
+card_number = Array[int]([2])
+card_color = Array[int]([6])
+card_symbol = Array[int]([6])
+card_origin = Array[int]([4])

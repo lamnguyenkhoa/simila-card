@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://tcyaoskfg3nu"]
+
+[ext_resource type="Texture2D" uid="uid://c67bxarueaiu7" path="res://asset/sprite/card_sprite/loveletter/loveletter_blue_4.png" id="1_pymbx"]
+[ext_resource type="Script" path="res://src/card/card_resource.gd" id="2_j4r2t"]
+
+[resource]
+script = ExtResource("2_j4r2t")
+card_name = "loveletter blue 4"
+card_sprite = ExtResource("1_pymbx")
+card_number = Array[int]([4])
+card_color = Array[int]([3])
+card_symbol = Array[int]([])
+card_origin = Array[int]([5])

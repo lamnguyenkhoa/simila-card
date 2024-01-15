@@ -6,16 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="4_q4ua1"]
 [ext_resource type="PackedScene" uid="uid://rhb1a4subqkb" path="res://src/card/CardSlot.tscn" id="5_mi3s5"]
 [ext_resource type="PackedScene" uid="uid://csa6mt0c5l2pw" path="res://src/card/Card.tscn" id="6_qqj74"]
-[ext_resource type="Texture2D" uid="uid://ci8hhhbi26yx0" path="res://asset/sprite/card_sprite/yugioh_green_i1.png" id="7_3a32n"]
-[ext_resource type="Resource" uid="uid://bbouc3mspirtx" path="res://src/card/data/uno_yellow_6.tres" id="7_a25yr"]
-[ext_resource type="Resource" uid="uid://bn6u5iv73rjj8" path="res://src/card/data/uno_red_3.tres" id="8_mgey8"]
-[ext_resource type="Resource" uid="uid://bbkcn0j1vxgo" path="res://src/card/data/uno_green_6.tres" id="9_vwnav"]
-[ext_resource type="Resource" uid="uid://dsjn7xi5thvi8" path="res://src/card/data/yugioh_white_6.tres" id="10_jq6ac"]
-[ext_resource type="Resource" uid="uid://35r82jgdvufx" path="res://src/card/data/yugioh_yellow_3.tres" id="12_l8sc1"]
+[ext_resource type="Texture2D" uid="uid://ci8hhhbi26yx0" path="res://asset/sprite/card_sprite/yugioh/yugioh_green_i1.png" id="7_3a32n"]
+[ext_resource type="Resource" uid="uid://bbouc3mspirtx" path="res://src/card/data/uno/uno_yellow_6.tres" id="7_a25yr"]
+[ext_resource type="Resource" uid="uid://bn6u5iv73rjj8" path="res://src/card/data/uno/uno_red_3.tres" id="8_mgey8"]
+[ext_resource type="Resource" uid="uid://bbkcn0j1vxgo" path="res://src/card/data/uno/uno_green_6.tres" id="9_vwnav"]
+[ext_resource type="Resource" uid="uid://dsjn7xi5thvi8" path="res://src/card/data/yugioh/yugioh_white_6.tres" id="10_jq6ac"]
+[ext_resource type="Resource" uid="uid://35r82jgdvufx" path="res://src/card/data/yugioh/yugioh_yellow_3.tres" id="12_l8sc1"]
 [ext_resource type="Script" path="res://src/card/card_resource.gd" id="13_jg2m7"]
 [ext_resource type="PackedScene" uid="uid://b7o15pcamy62d" path="res://src/scene/GameUI.tscn" id="14_oacvl"]
-[ext_resource type="Resource" uid="uid://cx2yrdeus1f45" path="res://src/card/data/yugioh_black_3.tres" id="15_amkmb"]
-[ext_resource type="Resource" uid="uid://brrgh7gjmsm5k" path="res://src/card/data/playing_club_ace.tres" id="15_tn24w"]
+[ext_resource type="Resource" uid="uid://cx2yrdeus1f45" path="res://src/card/data/yugioh/yugioh_black_3.tres" id="15_amkmb"]
+[ext_resource type="Resource" uid="uid://brrgh7gjmsm5k" path="res://src/card/data/playing_card/playing_club_ace.tres" id="15_tn24w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p6ren"]
 shader = ExtResource("3_h8udh")
@@ -105,8 +105,10 @@ layout_mode = 2
 
 [node name="Card7" parent="TableCardHolder/CardSlot7" instance=ExtResource("6_qqj74")]
 layout_mode = 2
-offset_right = 110.0
-offset_bottom = 175.0
+offset_left = 2.5
+offset_top = 2.5
+offset_right = 112.5
+offset_bottom = 177.5
 data = ExtResource("15_amkmb")
 locked = true
 
