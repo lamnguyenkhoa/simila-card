@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="4_8vrfj"]
 [ext_resource type="PackedScene" uid="uid://rhb1a4subqkb" path="res://src/card/CardSlot.tscn" id="5_d7lpn"]
 [ext_resource type="PackedScene" uid="uid://csa6mt0c5l2pw" path="res://src/card/Card.tscn" id="6_b8jfj"]
-[ext_resource type="Resource" uid="uid://c41b331cnmhq8" path="res://src/scene/level/playing_heart_3.tres" id="7_qc72p"]
 [ext_resource type="Resource" uid="uid://cl3vmd0cil1xm" path="res://src/card/data/uno_red_8.tres" id="8_31grn"]
 [ext_resource type="Script" path="res://src/card/card_resource.gd" id="8_80pju"]
-[ext_resource type="Resource" uid="uid://bx2ljymnncpb8" path="res://src/scene/level/playing_spade_8.tres" id="9_lgbua"]
+[ext_resource type="Resource" uid="uid://c41b331cnmhq8" path="res://src/card/data/playing_heart_3.tres" id="8_leyjs"]
+[ext_resource type="Resource" uid="uid://bx2ljymnncpb8" path="res://src/card/data/playing_spade_8.tres" id="10_bp6pg"]
 [ext_resource type="Resource" uid="uid://hp0q0k16opbt" path="res://src/card/data/uno_wild.tres" id="10_pjcri"]
 [ext_resource type="Resource" uid="uid://hw8av7sy3j4u" path="res://src/card/data/uno_yellow_4.tres" id="11_a8n07"]
 [ext_resource type="Texture2D" uid="uid://mnkvlxlhpegq" path="res://asset/sprite/card_sprite/yugioh_white_4.png" id="12_trf6m"]
@@ -124,7 +124,7 @@ alignment = 1
 
 [node name="Card" parent="HandCardHolder" instance=ExtResource("6_b8jfj")]
 layout_mode = 2
-data = ExtResource("7_qc72p")
+data = ExtResource("8_leyjs")
 
 [node name="Card2" parent="HandCardHolder" instance=ExtResource("6_b8jfj")]
 layout_mode = 2
@@ -132,7 +132,7 @@ data = ExtResource("8_31grn")
 
 [node name="Card3" parent="HandCardHolder" instance=ExtResource("6_b8jfj")]
 layout_mode = 2
-data = ExtResource("9_lgbua")
+data = ExtResource("10_bp6pg")
 
 [node name="Card5" parent="HandCardHolder" instance=ExtResource("6_b8jfj")]
 layout_mode = 2

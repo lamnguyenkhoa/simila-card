@@ -1,0 +1,446 @@
+[gd_scene load_steps=23 format=3 uid="uid://dhwhjtnkpnkje"]
+
+[ext_resource type="Script" path="res://src/scene/start_menu.gd" id="1_5g7ha"]
+[ext_resource type="AudioStream" uid="uid://bp10mmdvh0ubx" path="res://asset/music/Snipperclips_Music_Noisy_Notebook_A.ogg" id="2_72tvt"]
+[ext_resource type="Texture2D" uid="uid://kp1l5kgg8y6d" path="res://asset/sprite/construction_icon.png" id="3_rsms3"]
+[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="4_3y882"]
+[ext_resource type="Shader" path="res://src/shader/scrolling_background.gdshader" id="5_dbjkw"]
+[ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="6_m8ib6"]
+[ext_resource type="PackedScene" uid="uid://bcgbjefvhsgef" path="res://src/scene/SettingUI.tscn" id="7_ygyt3"]
+[ext_resource type="PackedScene" uid="uid://csa6mt0c5l2pw" path="res://src/card/Card.tscn" id="8_p6q14"]
+[ext_resource type="Resource" uid="uid://081v44qce37q" path="res://src/card/data/uno_blue_3.tres" id="9_30pkc"]
+[ext_resource type="Resource" uid="uid://dvn0msoovc18i" path="res://src/card/data/uno_blue_skip.tres" id="10_2n2ky"]
+[ext_resource type="Resource" uid="uid://brtl1sjn6cdh3" path="res://src/card/data/playing_club_2.tres" id="11_exgcr"]
+[ext_resource type="Resource" uid="uid://baeul7ndlivso" path="res://src/card/data/yugioh_white_4.tres" id="12_g0bkp"]
+[ext_resource type="Resource" uid="uid://c41b331cnmhq8" path="res://src/card/data/playing_heart_3.tres" id="13_o3oir"]
+[ext_resource type="Resource" uid="uid://6de8xwjvl0xk" path="res://src/card/data/uno_plus4.tres" id="14_jjxpw"]
+[ext_resource type="Texture2D" uid="uid://djls4rwur6bld" path="res://asset/sprite/title.png" id="15_dkwei"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b0enp"]
+shader = ExtResource("5_dbjkw")
+shader_parameter/motion = Vector2(-10, 10)
+shader_parameter/scale = 0.5
+shader_parameter/offset = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_yjgms"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_0f2ia"]
+resource_name = "open_level_select"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelSelect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelSelect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_8su1i"]
+resource_name = "ready"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-12, -400), Vector2(-12, 202)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/VBoxContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(185, 924), Vector2(185, 425)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_axaek"]
+_data = {
+"RESET": SubResource("Animation_yjgms"),
+"open_level_select": SubResource("Animation_0f2ia"),
+"ready": SubResource("Animation_8su1i")
+}
+
+[sub_resource type="Animation" id="Animation_8t0hd"]
+resource_name = "idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Title:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1, 1.9, 2, 2.9, 3, 3.9, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.0872665, -0.0872665, 0.0, 0.0, 0.0872665, 0.0872665, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xtkci"]
+_data = {
+"idle": SubResource("Animation_8t0hd")
+}
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5g7ha")
+bgm = ExtResource("2_72tvt")
+construction_img = ExtResource("3_rsms3")
+
+[node name="BaseBG" type="TextureRect" parent="."]
+self_modulate = Color(1, 0.933333, 0.866667, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_3y882")
+
+[node name="AnimatedBG" type="TextureRect" parent="."]
+self_modulate = Color(1, 0.847059, 0.745098, 1)
+material = SubResource("ShaderMaterial_b0enp")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_m8ib6")
+stretch_mode = 1
+flip_v = true
+
+[node name="SettingUI" parent="." instance=ExtResource("7_ygyt3")]
+layout_mode = 1
+offset_left = -274.0
+offset_bottom = 155.0
+
+[node name="LevelSelect" type="Control" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 143.0
+offset_right = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="LevelSelect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = 100.0
+offset_right = -86.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 5
+
+[node name="Button" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "1"
+
+[node name="Button2" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "2"
+
+[node name="Button3" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "3"
+
+[node name="Button4" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "4"
+
+[node name="Button5" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "5"
+
+[node name="Button6" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "6"
+
+[node name="Button7" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "7"
+
+[node name="Button8" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "8"
+
+[node name="Button9" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "9"
+
+[node name="Button10" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "10"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "ready"
+libraries = {
+"": SubResource("AnimationLibrary_axaek")
+}
+
+[node name="IdleAnim" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_xtkci")
+}
+
+[node name="Card" parent="." instance=ExtResource("8_p6q14")]
+visible = false
+offset_left = 332.0
+offset_top = 183.0
+offset_right = 442.0
+offset_bottom = 358.0
+rotation = 0.364039
+data = ExtResource("9_30pkc")
+
+[node name="Card2" parent="." instance=ExtResource("8_p6q14")]
+visible = false
+offset_left = 780.0
+offset_top = 153.0
+offset_right = 890.0
+offset_bottom = 328.0
+rotation = -0.121186
+data = ExtResource("10_2n2ky")
+
+[node name="Card3" parent="." instance=ExtResource("8_p6q14")]
+visible = false
+offset_left = 334.0
+offset_top = 504.0
+offset_right = 444.0
+offset_bottom = 679.0
+rotation = -0.508596
+data = ExtResource("11_exgcr")
+
+[node name="Card4" parent="." instance=ExtResource("8_p6q14")]
+visible = false
+offset_left = 725.0
+offset_top = 148.0
+offset_right = 835.0
+offset_bottom = 323.0
+rotation = 1.35141
+data = ExtResource("12_g0bkp")
+
+[node name="Card5" parent="." instance=ExtResource("8_p6q14")]
+visible = false
+offset_left = 756.0
+offset_top = 466.0
+offset_right = 866.0
+offset_bottom = 641.0
+rotation = 0.789751
+data = ExtResource("13_o3oir")
+
+[node name="Card6" parent="." instance=ExtResource("8_p6q14")]
+visible = false
+offset_left = 853.0
+offset_top = 492.0
+offset_right = 963.0
+offset_bottom = 667.0
+rotation = -0.608748
+data = ExtResource("14_jjxpw")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="Title" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 248.0
+offset_top = -184.0
+offset_right = 1077.0
+offset_bottom = 231.0
+grow_vertical = 2
+rotation = -0.0768848
+pivot_offset = Vector2(256, 0)
+texture = ExtResource("15_dkwei")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 185.0
+offset_top = 540.0
+offset_right = 270.0
+offset_bottom = 650.001
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.721569, 0.721569, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.721569, 0.721569, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 40
+text = "Start"
+flat = true
+
+[node name="QuitButton" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.721569, 0.721569, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.721569, 0.721569, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+flat = true
+
+[connection signal="pressed" from="LevelSelect/GridContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="LevelSelect/GridContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/StartButton" to="." method="_play_button_hover_sfx"]
+[connection signal="pressed" from="Control/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/QuitButton" to="." method="_play_button_hover_sfx"]
+[connection signal="pressed" from="Control/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
