@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://b1cmcrdyugnnj"]
+
+[ext_resource type="Texture2D" uid="uid://f62i4uh3qk8l" path="res://asset/sprite/card_sprite/playing_diamond_4.png" id="1_tvlmp"]
+[ext_resource type="Script" path="res://src/card/card_resource.gd" id="2_q53kj"]
+
+[resource]
+script = ExtResource("2_q53kj")
+card_name = "playing diamond 4"
+card_sprite = ExtResource("1_tvlmp")
+card_number = Array[int]([4])
+card_color = Array[int]([1])
+card_symbol = Array[int]([3])
+card_origin = Array[int]([4])

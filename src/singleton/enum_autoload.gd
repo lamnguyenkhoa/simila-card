@@ -10,7 +10,10 @@ enum CardColor {
 	BLUE,
 	YELLOW,
 	WHITE,
-	BLACK
+	BLACK,
+	GRAY,
+	PURPLE,
+	ORANGE
 }
 
 enum CardSymbol {

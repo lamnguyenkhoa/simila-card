@@ -1,6 +1,5 @@
 extends Control
 
-@export var bgm: AudioStream
 @export var construction_img: Texture2D
 
 @onready var anim_player: AnimationPlayer = $AnimationPlayer

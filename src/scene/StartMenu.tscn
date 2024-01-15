@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqwfl4qfjkf26"]
+[gd_scene load_steps=15 format=3 uid="uid://cqwfl4qfjkf26"]
 
 [ext_resource type="Script" path="res://src/scene/start_menu.gd" id="1_4utae"]
 [ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="1_x3n2w"]
-[ext_resource type="AudioStream" uid="uid://bp10mmdvh0ubx" path="res://asset/music/Snipperclips_Music_Noisy_Notebook_A.ogg" id="2_42gn6"]
 [ext_resource type="Shader" path="res://src/shader/scrolling_background.gdshader" id="2_ckg1j"]
 [ext_resource type="Texture2D" uid="uid://kp1l5kgg8y6d" path="res://asset/sprite/construction_icon.png" id="3_pg7xs"]
 [ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="3_y7v1b"]
@@ -109,7 +108,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4utae")
-bgm = ExtResource("2_42gn6")
 construction_img = ExtResource("3_pg7xs")
 
 [node name="BaseBG" type="TextureRect" parent="."]
@@ -374,6 +372,146 @@ theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 32
 disabled = true
 text = "10"
+
+[node name="Button11" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "5"
+
+[node name="Button12" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "6"
+
+[node name="Button13" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "7"
+
+[node name="Button14" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "8"
+
+[node name="Button15" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "9"
+
+[node name="Button16" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "10"
+
+[node name="Button17" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "5"
+
+[node name="Button18" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "6"
+
+[node name="Button19" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "7"
+
+[node name="Button20" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "8"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "ready"

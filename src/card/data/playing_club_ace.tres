@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://brrgh7gjmsm5k"]
+
+[ext_resource type="Texture2D" uid="uid://dhayka6ek0t4a" path="res://asset/sprite/card_sprite/playing_club_ace.png" id="1_y0s52"]
+[ext_resource type="Script" path="res://src/card/card_resource.gd" id="2_p6iie"]
+
+[resource]
+script = ExtResource("2_p6iie")
+card_name = "playing club ace"
+card_sprite = ExtResource("1_y0s52")
+card_number = Array[int]([])
+card_color = Array[int]([6])
+card_symbol = Array[int]([4])
+card_origin = Array[int]([4])
