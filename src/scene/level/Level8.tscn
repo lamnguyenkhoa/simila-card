@@ -39,7 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3ikws")
 level_id = 7
-level_description = "~The red circle with yellow star is the level of the monster in Yugi*h cards, just saying~"
+level_description = "~Ooh, we have a new guest. The number of red and yellow circles is the level of the monster in Yugi*h cards, just saying~"
 allow_symbol_compare = true
 
 [node name="BaseBG" type="TextureRect" parent="."]

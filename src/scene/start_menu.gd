@@ -9,8 +9,6 @@ extends Control
 var opened_level_select = false
 
 func _ready() -> void:
-	SoundManager.play_music(bgm)
-
 	# Unlock levels
 	for i in range(level_button_container.get_child_count()):
 		var button = level_button_container.get_child(i) as Button

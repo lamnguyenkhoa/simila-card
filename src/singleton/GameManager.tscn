@@ -1,15 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvrqgurjm47eo"]
+[gd_scene load_steps=12 format=3 uid="uid://bvrqgurjm47eo"]
 
 [ext_resource type="Script" path="res://src/singleton/game_manager.gd" id="1_8w13l"]
 [ext_resource type="PackedScene" uid="uid://cqwfl4qfjkf26" path="res://src/scene/StartMenu.tscn" id="2_d0kxn"]
+[ext_resource type="AudioStream" uid="uid://bp10mmdvh0ubx" path="res://asset/music/Snipperclips_Music_Noisy_Notebook_A.ogg" id="2_gcnvy"]
 [ext_resource type="PackedScene" uid="uid://bwsmv7qyj0545" path="res://src/scene/level/Level1.tscn" id="2_rr65b"]
 [ext_resource type="PackedScene" uid="uid://5nfi26akjnfj" path="res://src/scene/level/Level2.tscn" id="4_prkvr"]
 [ext_resource type="PackedScene" uid="uid://cyu0xu5lrd1da" path="res://src/scene/level/Level3.tscn" id="5_w41va"]
 [ext_resource type="PackedScene" uid="uid://c4emsf8firbfj" path="res://src/scene/level/Level4.tscn" id="6_f4hdj"]
 [ext_resource type="PackedScene" uid="uid://blrwig2x3gno" path="res://src/scene/level/Level5.tscn" id="7_rastv"]
-[ext_resource type="PackedScene" uid="uid://cshuif28gjxuv" path="res://src/scene/level/Level6.tscn" id="8_iltvp"]
+[ext_resource type="PackedScene" uid="uid://cxsq0w1qlcwl" path="res://src/scene/level/Level6.tscn" id="8_iltvp"]
+[ext_resource type="PackedScene" uid="uid://dkqa6mwthrlsk" path="res://src/scene/level/Level7.tscn" id="9_u0qqw"]
+[ext_resource type="PackedScene" uid="uid://cshuif28gjxuv" path="res://src/scene/level/Level8.tscn" id="10_dlhr0"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_8w13l")
+bgm = ExtResource("2_gcnvy")
 start_menu = ExtResource("2_d0kxn")
-level_list = Array[PackedScene]([ExtResource("2_rr65b"), ExtResource("4_prkvr"), ExtResource("5_w41va"), ExtResource("6_f4hdj"), ExtResource("7_rastv"), ExtResource("8_iltvp")])
+level_list = Array[PackedScene]([ExtResource("2_rr65b"), ExtResource("4_prkvr"), ExtResource("5_w41va"), ExtResource("6_f4hdj"), ExtResource("7_rastv"), ExtResource("8_iltvp"), ExtResource("9_u0qqw"), ExtResource("10_dlhr0")])

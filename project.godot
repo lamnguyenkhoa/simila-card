@@ -19,8 +19,8 @@ config/icon="res://asset/sprite/icon.png"
 [autoload]
 
 EnumAutoload="*res://src/singleton/enum_autoload.gd"
-GameManager="*res://src/singleton/GameManager.tscn"
 SoundManager="*res://addons/sound_manager/sound_manager.gd"
+GameManager="*res://src/singleton/GameManager.tscn"
 
 [display]
 
