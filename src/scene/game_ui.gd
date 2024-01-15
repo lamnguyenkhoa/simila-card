@@ -9,6 +9,10 @@ class_name GameUI
 @onready var next_level_button = $LevelFinishPopup/HBoxContainer/NextButton
 @onready var similarity_label = $SimilarityLabel
 
+@onready var zoom_camera: Camera2D = $SubViewportContainer/SubViewport/ZoomCamera
+@onready var zoom_texture: TextureRect = $SubViewportContainer/SubViewport/CardTexture
+@onready var viewport_container = $SubViewportContainer
+
 @export var level: Level
 
 var next_level_scene: PackedScene = null
@@ -20,6 +24,14 @@ func _ready() -> void:
 		setup_similarity_label()
 	if not Engine.is_editor_hint():
 		GameManager.level_finished.connect(_on_level_finished)
+		GameManager.game_ui = self
+
+func _process(_delta):
+	if Engine.is_editor_hint():
+		return
+
+	var mouse_pos = get_viewport().get_mouse_position()
+	zoom_camera.global_position = mouse_pos + GameManager.main_camera.position
 
 
 func setup_similarity_label():
@@ -32,6 +44,19 @@ func setup_similarity_label():
 		similarity_label.text += '\n- Symbol'
 	if level.allow_origin_compare:
 		similarity_label.text += '\n- Origin'
+
+func show_zoom_camera(card: Card, _visible: bool):
+	viewport_container.visible = _visible
+	if not _visible:
+		return
+
+	zoom_texture.texture = card.data.card_sprite
+	if card.placed:
+		zoom_texture.global_position = card.global_position + Vector2(0, -10)
+		viewport_container.global_position = card.global_position + Vector2(0, 200) - GameManager.main_camera.position
+	else:
+		zoom_texture.global_position = card.global_position + Vector2(0, -100)
+		viewport_container.global_position = card.global_position + Vector2(0, -250) - GameManager.main_camera.position
 
 func _on_level_finished(level_id: int):
 	anim_player.play("open_level_finish_panel")

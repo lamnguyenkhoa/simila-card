@@ -58,6 +58,8 @@ func _on_card_moved(_card: Card):
 		position = (card_slot.size - size) / 2
 
 func _on_texture_rect_mouse_entered() -> void:
+	GameManager.game_ui.show_zoom_camera(self, true)
+
 	if locked:
 		return
 
@@ -71,6 +73,8 @@ func _on_texture_rect_mouse_entered() -> void:
 	highlighted = true
 
 func _on_texture_rect_mouse_exited() -> void:
+	GameManager.game_ui.show_zoom_camera(self, false)
+
 	if locked:
 		return
 

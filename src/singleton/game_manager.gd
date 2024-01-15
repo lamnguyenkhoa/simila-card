@@ -8,6 +8,8 @@ signal level_finished(level_id)
 @export var level_list: Array[PackedScene]
 
 var current_level: Level
+var game_ui: GameUI
+var main_camera: Camera2D
 var selected_card: Card
 var highest_level_id: int = 0 # Level_id equal or lower than this are unlocked
 

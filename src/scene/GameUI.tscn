@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7o15pcamy62d"]
+[gd_scene load_steps=7 format=3 uid="uid://b7o15pcamy62d"]
 
 [ext_resource type="Script" path="res://src/scene/game_ui.gd" id="1_83fpk"]
 [ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="2_5e0wb"]
 [ext_resource type="PackedScene" uid="uid://bcgbjefvhsgef" path="res://src/scene/SettingUI.tscn" id="2_8vd8r"]
+[ext_resource type="Texture2D" uid="uid://bnftwkjrl7mhk" path="res://asset/sprite/circle.png" id="4_5bro8"]
 
 [sub_resource type="Animation" id="Animation_oy8u2"]
 resource_name = "open_level_finish_panel"
@@ -224,6 +225,67 @@ offset_bottom = 307.0
 theme_override_colors/font_color = Color(0.721569, 0.721569, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
+text = "Allowed similarity:
+- A
+- B
+- C"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+visible = false
+layout_mode = 1
+offset_left = 21.0
+offset_top = 295.0
+offset_right = 131.0
+offset_bottom = 405.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(110, 110)
+render_target_update_mode = 0
+
+[node name="ZoomCamera" type="Camera2D" parent="SubViewportContainer/SubViewport"]
+zoom = Vector2(2, 2)
+
+[node name="CardTexturePanel" type="Panel" parent="SubViewportContainer/SubViewport"]
+offset_right = 1366.0
+offset_bottom = 768.0
+
+[node name="CardTexture" type="TextureRect" parent="SubViewportContainer/SubViewport"]
+offset_right = 110.0
+offset_bottom = 175.0
+texture = ExtResource("2_5e0wb")
+expand_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewportContainer/SubViewport"]
+
+[node name="Center" type="TextureRect" parent="SubViewportContainer/SubViewport/CanvasLayer"]
+self_modulate = Color(0.486275, 0.0196078, 0, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_5bro8")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 22.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Zoomed"
 
 [connection signal="mouse_entered" from="BackButton" to="." method="_play_button_hover_sfx"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

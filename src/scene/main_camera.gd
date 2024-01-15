@@ -3,6 +3,7 @@ extends Camera2D
 var center_viewport: Vector2
 
 func _ready() -> void:
+	GameManager.main_camera = self
 	center_viewport = get_viewport().get_visible_rect().size / 2
 
 func _process(_delta):
