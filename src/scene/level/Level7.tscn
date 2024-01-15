@@ -1,24 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://dkqa6mwthrlsk"]
+[gd_scene load_steps=13 format=3 uid="uid://dkqa6mwthrlsk"]
 
 [ext_resource type="Script" path="res://src/scene/level/level.gd" id="1_jaeqf"]
-[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="2_8b6ot"]
-[ext_resource type="Shader" path="res://src/shader/scrolling_background.gdshader" id="3_x8ci6"]
-[ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="4_4duyi"]
+[ext_resource type="PackedScene" uid="uid://45kgratefjga" path="res://src/scene/LevelBackground.tscn" id="2_225vf"]
 [ext_resource type="PackedScene" uid="uid://rhb1a4subqkb" path="res://src/card/CardSlot.tscn" id="5_5yiug"]
 [ext_resource type="PackedScene" uid="uid://csa6mt0c5l2pw" path="res://src/card/Card.tscn" id="6_kb7sa"]
-[ext_resource type="Resource" uid="uid://dg5qvwsoi6ujv" path="res://src/card/data/playing_diamond_3.tres" id="7_jblwf"]
-[ext_resource type="Resource" uid="uid://c41b331cnmhq8" path="res://src/card/data/playing_heart_3.tres" id="8_ys0wb"]
-[ext_resource type="Resource" uid="uid://hp0q0k16opbt" path="res://src/card/data/uno_wild.tres" id="9_43dug"]
-[ext_resource type="Resource" uid="uid://b8ynloc3don2p" path="res://src/card/data/uno_red_skip.tres" id="10_87cph"]
-[ext_resource type="Resource" uid="uid://dvn0msoovc18i" path="res://src/card/data/uno_blue_skip.tres" id="11_du16w"]
-[ext_resource type="Resource" uid="uid://dub2x3tgq0kh5" path="res://src/card/data/uno_green_3.tres" id="12_43etm"]
+[ext_resource type="Resource" uid="uid://dg5qvwsoi6ujv" path="res://src/card/data/playing_card/playing_diamond_3.tres" id="7_jblwf"]
+[ext_resource type="Resource" uid="uid://c41b331cnmhq8" path="res://src/card/data/playing_card/playing_heart_3.tres" id="8_ys0wb"]
+[ext_resource type="Resource" uid="uid://hp0q0k16opbt" path="res://src/card/data/uno/uno_wild.tres" id="9_43dug"]
+[ext_resource type="Resource" uid="uid://b8ynloc3don2p" path="res://src/card/data/uno/uno_red_skip.tres" id="10_87cph"]
+[ext_resource type="Resource" uid="uid://dvn0msoovc18i" path="res://src/card/data/uno/uno_blue_skip.tres" id="11_du16w"]
+[ext_resource type="Resource" uid="uid://dub2x3tgq0kh5" path="res://src/card/data/uno/uno_green_3.tres" id="12_43etm"]
+[ext_resource type="PackedScene" uid="uid://cg4y6uj4nehtj" path="res://src/scene/MainCamera.tscn" id="12_r4pw2"]
 [ext_resource type="PackedScene" uid="uid://b7o15pcamy62d" path="res://src/scene/GameUI.tscn" id="15_7h50c"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p6ren"]
-shader = ExtResource("3_x8ci6")
-shader_parameter/motion = Vector2(-10, 10)
-shader_parameter/scale = 0.5
-shader_parameter/offset = Vector2(0, 0)
 
 [node name="Level7" type="Control"]
 layout_mode = 3
@@ -33,28 +26,8 @@ level_description = "~Some levels has a slightly different ruleset, check the le
 allow_number_compare = false
 allow_symbol_compare = true
 
-[node name="BaseBG" type="TextureRect" parent="."]
-self_modulate = Color(1, 0.933333, 0.866667, 1)
+[node name="LevelBackground" parent="." instance=ExtResource("2_225vf")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_8b6ot")
-
-[node name="AnimatedBG" type="TextureRect" parent="."]
-self_modulate = Color(1, 0.847059, 0.745098, 1)
-material = SubResource("ShaderMaterial_p6ren")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_4duyi")
-stretch_mode = 1
-flip_v = true
 
 [node name="TableCardHolder" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -128,5 +101,9 @@ data = ExtResource("9_43dug")
 layout_mode = 2
 data = ExtResource("12_43etm")
 
-[node name="GameUI" parent="." instance=ExtResource("15_7h50c")]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameUI" parent="CanvasLayer" node_paths=PackedStringArray("level") instance=ExtResource("15_7h50c")]
+level = NodePath("../..")
+
+[node name="MainCamera" parent="." instance=ExtResource("12_r4pw2")]

@@ -1,25 +1,18 @@
-[gd_scene load_steps=22 format=3 uid="uid://5nfi26akjnfj"]
+[gd_scene load_steps=20 format=3 uid="uid://5nfi26akjnfj"]
 
 [ext_resource type="Script" path="res://src/scene/level/level.gd" id="1_g8jdg"]
-[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="2_43yno"]
-[ext_resource type="Shader" path="res://src/shader/scrolling_background.gdshader" id="3_tt6kj"]
-[ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="4_ivbb2"]
+[ext_resource type="PackedScene" uid="uid://45kgratefjga" path="res://src/scene/LevelBackground.tscn" id="2_6srdt"]
 [ext_resource type="PackedScene" uid="uid://rhb1a4subqkb" path="res://src/card/CardSlot.tscn" id="5_4wbn5"]
 [ext_resource type="PackedScene" uid="uid://csa6mt0c5l2pw" path="res://src/card/Card.tscn" id="6_whshx"]
-[ext_resource type="Texture2D" uid="uid://disfmesaeusyh" path="res://asset/sprite/card_sprite/uno_green_8.png" id="7_arkto"]
+[ext_resource type="Texture2D" uid="uid://disfmesaeusyh" path="res://asset/sprite/card_sprite/uno/uno_green_8.png" id="7_arkto"]
 [ext_resource type="Script" path="res://src/card/card_resource.gd" id="8_smavm"]
-[ext_resource type="Texture2D" uid="uid://clb5bvvnrsq3i" path="res://asset/sprite/card_sprite/uno_green_4.png" id="9_14btd"]
-[ext_resource type="Texture2D" uid="uid://bj4m7yjc5f86w" path="res://asset/sprite/card_sprite/uno_yellow_4.png" id="10_txb20"]
-[ext_resource type="Texture2D" uid="uid://bl60jjiveb77r" path="res://asset/sprite/card_sprite/uno_yellow_plus2.png" id="11_j3g81"]
+[ext_resource type="Texture2D" uid="uid://clb5bvvnrsq3i" path="res://asset/sprite/card_sprite/uno/uno_green_4.png" id="9_14btd"]
+[ext_resource type="Texture2D" uid="uid://bj4m7yjc5f86w" path="res://asset/sprite/card_sprite/uno/uno_yellow_4.png" id="10_txb20"]
+[ext_resource type="Texture2D" uid="uid://bl60jjiveb77r" path="res://asset/sprite/card_sprite/uno/uno_yellow_plus2.png" id="11_j3g81"]
 [ext_resource type="PackedScene" uid="uid://b7o15pcamy62d" path="res://src/scene/GameUI.tscn" id="12_qkehs"]
-[ext_resource type="Texture2D" uid="uid://caq3w3wh5lrfx" path="res://asset/sprite/card_sprite/uno_red_2.png" id="12_qwthl"]
-[ext_resource type="Texture2D" uid="uid://co3nhrxywymab" path="res://asset/sprite/card_sprite/uno_skip_red.png" id="13_vq20w"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p6ren"]
-shader = ExtResource("3_tt6kj")
-shader_parameter/motion = Vector2(-10, 10)
-shader_parameter/scale = 0.5
-shader_parameter/offset = Vector2(0, 0)
+[ext_resource type="Texture2D" uid="uid://caq3w3wh5lrfx" path="res://asset/sprite/card_sprite/uno/uno_red_2.png" id="12_qwthl"]
+[ext_resource type="Texture2D" uid="uid://co3nhrxywymab" path="res://asset/sprite/card_sprite/uno/uno_skip_red.png" id="13_vq20w"]
+[ext_resource type="PackedScene" uid="uid://cg4y6uj4nehtj" path="res://src/scene/MainCamera.tscn" id="13_x3wg3"]
 
 [sub_resource type="Resource" id="Resource_t0de7"]
 script = ExtResource("8_smavm")
@@ -86,28 +79,8 @@ script = ExtResource("1_g8jdg")
 level_id = 1
 level_description = "~Remember, similar NUMBER~"
 
-[node name="BaseBG" type="TextureRect" parent="."]
-self_modulate = Color(1, 0.933333, 0.866667, 1)
+[node name="LevelBackground" parent="." instance=ExtResource("2_6srdt")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_43yno")
-
-[node name="AnimatedBG" type="TextureRect" parent="."]
-self_modulate = Color(1, 0.847059, 0.745098, 1)
-material = SubResource("ShaderMaterial_p6ren")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_ivbb2")
-stretch_mode = 1
-flip_v = true
 
 [node name="TableCardHolder" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -186,5 +159,9 @@ data = SubResource("Resource_uesex")
 layout_mode = 2
 data = SubResource("Resource_s5oju")
 
-[node name="GameUI" parent="." instance=ExtResource("12_qkehs")]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameUI" parent="CanvasLayer" node_paths=PackedStringArray("level") instance=ExtResource("12_qkehs")]
+level = NodePath("../..")
+
+[node name="MainCamera" parent="." instance=ExtResource("13_x3wg3")]

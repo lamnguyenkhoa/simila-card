@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg4y6uj4nehtj"]
+
+[ext_resource type="Script" path="res://src/scene/main_camera.gd" id="1_wkljv"]
+
+[node name="MainCamera" type="Camera2D"]
+anchor_mode = 0
+position_smoothing_enabled = true
+script = ExtResource("1_wkljv")

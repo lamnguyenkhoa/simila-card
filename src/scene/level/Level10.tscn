@@ -1,9 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://c2e3a1td7t01x"]
+[gd_scene load_steps=15 format=3 uid="uid://c2e3a1td7t01x"]
 
 [ext_resource type="Script" path="res://src/scene/level/level.gd" id="1_38ndn"]
-[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="2_m66h8"]
-[ext_resource type="Shader" path="res://src/shader/scrolling_background.gdshader" id="3_oamhb"]
-[ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="4_clb61"]
+[ext_resource type="PackedScene" uid="uid://45kgratefjga" path="res://src/scene/LevelBackground.tscn" id="2_75bkh"]
 [ext_resource type="PackedScene" uid="uid://rhb1a4subqkb" path="res://src/card/CardSlot.tscn" id="5_uvgon"]
 [ext_resource type="PackedScene" uid="uid://csa6mt0c5l2pw" path="res://src/card/Card.tscn" id="6_kxmss"]
 [ext_resource type="Resource" uid="uid://cjc3t4v8j5p5b" path="res://src/card/data/uno/uno_red_6.tres" id="7_q7mf8"]
@@ -13,14 +11,9 @@
 [ext_resource type="Resource" uid="uid://gdhtf02qrf1c" path="res://src/scene/level/yugioh_blue_6.tres" id="9_fgmj5"]
 [ext_resource type="Resource" uid="uid://bm2q2craluaki" path="res://src/scene/level/loveletter_red_2.tres" id="11_y1etc"]
 [ext_resource type="Resource" uid="uid://cw520gba7flrr" path="res://src/scene/level/playing_diamond_7.tres" id="13_4q1er"]
+[ext_resource type="PackedScene" uid="uid://cg4y6uj4nehtj" path="res://src/scene/MainCamera.tscn" id="14_fjhkj"]
 [ext_resource type="Resource" uid="uid://tvi71w86imiv" path="res://src/scene/level/uno_green_7.tres" id="14_mwdgn"]
 [ext_resource type="PackedScene" uid="uid://b7o15pcamy62d" path="res://src/scene/GameUI.tscn" id="16_6o7he"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p6ren"]
-shader = ExtResource("3_oamhb")
-shader_parameter/motion = Vector2(-10, 10)
-shader_parameter/scale = 0.5
-shader_parameter/offset = Vector2(0, 0)
 
 [node name="Level10" type="Control"]
 layout_mode = 3
@@ -34,28 +27,8 @@ level_id = 9
 level_description = "~These new cards are from a game called Love Letter~"
 allow_symbol_compare = true
 
-[node name="BaseBG" type="TextureRect" parent="."]
-self_modulate = Color(1, 0.933333, 0.866667, 1)
+[node name="LevelBackground" parent="." instance=ExtResource("2_75bkh")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_m66h8")
-
-[node name="AnimatedBG" type="TextureRect" parent="."]
-self_modulate = Color(1, 0.847059, 0.745098, 1)
-material = SubResource("ShaderMaterial_p6ren")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_clb61")
-stretch_mode = 1
-flip_v = true
 
 [node name="TableCardHolder" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -143,5 +116,9 @@ data = ExtResource("13_4q1er")
 layout_mode = 2
 data = ExtResource("14_mwdgn")
 
-[node name="GameUI" parent="." instance=ExtResource("16_6o7he")]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameUI" parent="CanvasLayer" node_paths=PackedStringArray("level") instance=ExtResource("16_6o7he")]
+level = NodePath("../..")
+
+[node name="MainCamera" parent="." instance=ExtResource("14_fjhkj")]

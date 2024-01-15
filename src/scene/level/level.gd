@@ -11,6 +11,8 @@ class_name Level
 
 @onready var table_card_holder = $TableCardHolder
 @onready var hand_card_holder = $HandCardHolder
+@onready var main_camera: Camera2D = $MainCamera
+
 
 func _ready() -> void:
 	GameManager.update_current_level(self)

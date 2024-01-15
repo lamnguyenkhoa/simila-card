@@ -1,18 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cqwfl4qfjkf26"]
+[gd_scene load_steps=13 format=3 uid="uid://cqwfl4qfjkf26"]
 
 [ext_resource type="Script" path="res://src/scene/start_menu.gd" id="1_4utae"]
-[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="1_x3n2w"]
-[ext_resource type="Shader" path="res://src/shader/scrolling_background.gdshader" id="2_ckg1j"]
+[ext_resource type="PackedScene" uid="uid://45kgratefjga" path="res://src/scene/LevelBackground.tscn" id="3_fpgbu"]
 [ext_resource type="Texture2D" uid="uid://kp1l5kgg8y6d" path="res://asset/sprite/construction_icon.png" id="3_pg7xs"]
-[ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="3_y7v1b"]
 [ext_resource type="Texture2D" uid="uid://djls4rwur6bld" path="res://asset/sprite/title.png" id="4_hvxp1"]
 [ext_resource type="PackedScene" uid="uid://bcgbjefvhsgef" path="res://src/scene/SettingUI.tscn" id="5_k5eah"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b0enp"]
-shader = ExtResource("2_ckg1j")
-shader_parameter/motion = Vector2(-10, 10)
-shader_parameter/scale = 0.5
-shader_parameter/offset = Vector2(0, 0)
+[ext_resource type="PackedScene" uid="uid://cg4y6uj4nehtj" path="res://src/scene/MainCamera.tscn" id="6_xxajd"]
 
 [sub_resource type="Animation" id="Animation_yjgms"]
 length = 0.001
@@ -110,33 +103,8 @@ grow_vertical = 2
 script = ExtResource("1_4utae")
 construction_img = ExtResource("3_pg7xs")
 
-[node name="BaseBG" type="TextureRect" parent="."]
-self_modulate = Color(1, 0.933333, 0.866667, 1)
+[node name="LevelBackground" parent="." instance=ExtResource("3_fpgbu")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_x3n2w")
-
-[node name="AnimatedBG" type="TextureRect" parent="."]
-self_modulate = Color(1, 0.847059, 0.745098, 1)
-material = SubResource("ShaderMaterial_b0enp")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_y7v1b")
-stretch_mode = 1
-flip_v = true
-
-[node name="SettingUI" parent="." instance=ExtResource("5_k5eah")]
-layout_mode = 1
-offset_left = -274.0
-offset_bottom = 155.0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
@@ -524,6 +492,14 @@ autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_xtkci")
 }
+
+[node name="MainCamera" parent="." instance=ExtResource("6_xxajd")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SettingUI" parent="CanvasLayer" instance=ExtResource("5_k5eah")]
+offset_left = -274.0
+offset_bottom = 155.0
 
 [connection signal="mouse_entered" from="Control/VBoxContainer/StartButton" to="." method="_play_button_hover_sfx"]
 [connection signal="pressed" from="Control/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

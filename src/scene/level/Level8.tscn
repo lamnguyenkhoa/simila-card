@@ -1,25 +1,18 @@
-[gd_scene load_steps=17 format=3 uid="uid://cshuif28gjxuv"]
+[gd_scene load_steps=15 format=3 uid="uid://cshuif28gjxuv"]
 
 [ext_resource type="Script" path="res://src/scene/level/level.gd" id="1_3ikws"]
-[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="2_re8m0"]
-[ext_resource type="Shader" path="res://src/shader/scrolling_background.gdshader" id="3_0byql"]
-[ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="4_gfm0h"]
+[ext_resource type="PackedScene" uid="uid://45kgratefjga" path="res://src/scene/LevelBackground.tscn" id="2_24evc"]
 [ext_resource type="PackedScene" uid="uid://rhb1a4subqkb" path="res://src/card/CardSlot.tscn" id="5_xfwiv"]
 [ext_resource type="PackedScene" uid="uid://csa6mt0c5l2pw" path="res://src/card/Card.tscn" id="6_ucrjx"]
-[ext_resource type="Resource" uid="uid://hp0q0k16opbt" path="res://src/card/data/uno_wild.tres" id="7_iprvq"]
-[ext_resource type="Resource" uid="uid://c41b331cnmhq8" path="res://src/card/data/playing_heart_3.tres" id="8_kg1m4"]
-[ext_resource type="Resource" uid="uid://cl3vmd0cil1xm" path="res://src/card/data/uno_red_8.tres" id="9_1pq3o"]
-[ext_resource type="Resource" uid="uid://bx2ljymnncpb8" path="res://src/card/data/playing_spade_8.tres" id="10_uaki5"]
-[ext_resource type="Resource" uid="uid://hw8av7sy3j4u" path="res://src/card/data/uno_yellow_4.tres" id="11_tsu51"]
-[ext_resource type="Texture2D" uid="uid://mnkvlxlhpegq" path="res://asset/sprite/card_sprite/yugioh_white_4.png" id="12_d1pwa"]
+[ext_resource type="Resource" uid="uid://hp0q0k16opbt" path="res://src/card/data/uno/uno_wild.tres" id="7_iprvq"]
+[ext_resource type="Resource" uid="uid://c41b331cnmhq8" path="res://src/card/data/playing_card/playing_heart_3.tres" id="8_kg1m4"]
+[ext_resource type="Resource" uid="uid://cl3vmd0cil1xm" path="res://src/card/data/uno/uno_red_8.tres" id="9_1pq3o"]
+[ext_resource type="Resource" uid="uid://bx2ljymnncpb8" path="res://src/card/data/playing_card/playing_spade_8.tres" id="10_uaki5"]
+[ext_resource type="Resource" uid="uid://hw8av7sy3j4u" path="res://src/card/data/uno/uno_yellow_4.tres" id="11_tsu51"]
+[ext_resource type="Texture2D" uid="uid://mnkvlxlhpegq" path="res://asset/sprite/card_sprite/yugioh/yugioh_white_4.png" id="12_d1pwa"]
+[ext_resource type="PackedScene" uid="uid://cg4y6uj4nehtj" path="res://src/scene/MainCamera.tscn" id="13_tk3qg"]
 [ext_resource type="Script" path="res://src/card/card_resource.gd" id="13_wdvlx"]
 [ext_resource type="PackedScene" uid="uid://b7o15pcamy62d" path="res://src/scene/GameUI.tscn" id="14_knslc"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p6ren"]
-shader = ExtResource("3_0byql")
-shader_parameter/motion = Vector2(-10, 10)
-shader_parameter/scale = 0.5
-shader_parameter/offset = Vector2(0, 0)
 
 [sub_resource type="Resource" id="Resource_iiv03"]
 script = ExtResource("13_wdvlx")
@@ -30,7 +23,7 @@ card_color = Array[int]([5])
 card_symbol = Array[int]([])
 card_origin = Array[int]([2])
 
-[node name="Level6" type="Control"]
+[node name="Level8" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,28 +35,8 @@ level_id = 7
 level_description = "~Ooh, yugi*h cards. The number of red and yellow circles is the level of the monster in Yugi*h, just saying~"
 allow_symbol_compare = true
 
-[node name="BaseBG" type="TextureRect" parent="."]
-self_modulate = Color(1, 0.933333, 0.866667, 1)
+[node name="LevelBackground" parent="." instance=ExtResource("2_24evc")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_re8m0")
-
-[node name="AnimatedBG" type="TextureRect" parent="."]
-self_modulate = Color(1, 0.847059, 0.745098, 1)
-material = SubResource("ShaderMaterial_p6ren")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_gfm0h")
-stretch_mode = 1
-flip_v = true
 
 [node name="TableCardHolder" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -142,5 +115,9 @@ data = ExtResource("11_tsu51")
 layout_mode = 2
 data = SubResource("Resource_iiv03")
 
-[node name="GameUI" parent="." instance=ExtResource("14_knslc")]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameUI" parent="CanvasLayer" node_paths=PackedStringArray("level") instance=ExtResource("14_knslc")]
+level = NodePath("../..")
+
+[node name="MainCamera" parent="." instance=ExtResource("13_tk3qg")]

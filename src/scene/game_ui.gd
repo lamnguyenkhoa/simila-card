@@ -9,19 +9,20 @@ class_name GameUI
 @onready var next_level_button = $LevelFinishPopup/HBoxContainer/NextButton
 @onready var similarity_label = $SimilarityLabel
 
+@export var level: Level
+
 var next_level_scene: PackedScene = null
 
 func _ready() -> void:
-	if get_parent() is Level:
-		var level = get_parent() as Level
+	if level:
 		level_label.text = "Level " + str(level.level_id + 1)
 		description_label.text = level.level_description
-		setup_similarity_label(level)
+		setup_similarity_label()
 	if not Engine.is_editor_hint():
 		GameManager.level_finished.connect(_on_level_finished)
 
 
-func setup_similarity_label(level: Level):
+func setup_similarity_label():
 	similarity_label.text = "Allowed similarity:"
 	if level.allow_color_compare:
 		similarity_label.text += '\n- Color'

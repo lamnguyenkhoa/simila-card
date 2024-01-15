@@ -1,9 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://kafuiyyflk7x"]
+[gd_scene load_steps=17 format=3 uid="uid://kafuiyyflk7x"]
 
 [ext_resource type="Script" path="res://src/scene/level/level.gd" id="1_en5o6"]
-[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="2_53ley"]
-[ext_resource type="Shader" path="res://src/shader/scrolling_background.gdshader" id="3_h8udh"]
-[ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="4_q4ua1"]
+[ext_resource type="PackedScene" uid="uid://45kgratefjga" path="res://src/scene/LevelBackground.tscn" id="2_5yo5h"]
 [ext_resource type="PackedScene" uid="uid://rhb1a4subqkb" path="res://src/card/CardSlot.tscn" id="5_mi3s5"]
 [ext_resource type="PackedScene" uid="uid://csa6mt0c5l2pw" path="res://src/card/Card.tscn" id="6_qqj74"]
 [ext_resource type="Texture2D" uid="uid://ci8hhhbi26yx0" path="res://asset/sprite/card_sprite/yugioh/yugioh_green_i1.png" id="7_3a32n"]
@@ -14,14 +12,9 @@
 [ext_resource type="Resource" uid="uid://35r82jgdvufx" path="res://src/card/data/yugioh/yugioh_yellow_3.tres" id="12_l8sc1"]
 [ext_resource type="Script" path="res://src/card/card_resource.gd" id="13_jg2m7"]
 [ext_resource type="PackedScene" uid="uid://b7o15pcamy62d" path="res://src/scene/GameUI.tscn" id="14_oacvl"]
+[ext_resource type="PackedScene" uid="uid://cg4y6uj4nehtj" path="res://src/scene/MainCamera.tscn" id="15_4r4ag"]
 [ext_resource type="Resource" uid="uid://cx2yrdeus1f45" path="res://src/card/data/yugioh/yugioh_black_3.tres" id="15_amkmb"]
 [ext_resource type="Resource" uid="uid://brrgh7gjmsm5k" path="res://src/card/data/playing_card/playing_club_ace.tres" id="15_tn24w"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p6ren"]
-shader = ExtResource("3_h8udh")
-shader_parameter/motion = Vector2(-10, 10)
-shader_parameter/scale = 0.5
-shader_parameter/offset = Vector2(0, 0)
 
 [sub_resource type="Resource" id="Resource_v5am0"]
 script = ExtResource("13_jg2m7")
@@ -44,28 +37,8 @@ level_id = 8
 level_description = "~These Yugi*h cards have a lot of color, huh~"
 allow_symbol_compare = true
 
-[node name="BaseBG" type="TextureRect" parent="."]
-self_modulate = Color(1, 0.933333, 0.866667, 1)
+[node name="LevelBackground" parent="." instance=ExtResource("2_5yo5h")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_53ley")
-
-[node name="AnimatedBG" type="TextureRect" parent="."]
-self_modulate = Color(1, 0.847059, 0.745098, 1)
-material = SubResource("ShaderMaterial_p6ren")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_q4ua1")
-stretch_mode = 1
-flip_v = true
 
 [node name="TableCardHolder" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -158,5 +131,9 @@ data = ExtResource("8_mgey8")
 layout_mode = 2
 data = ExtResource("15_tn24w")
 
-[node name="GameUI" parent="." instance=ExtResource("14_oacvl")]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameUI" parent="CanvasLayer" node_paths=PackedStringArray("level") instance=ExtResource("14_oacvl")]
+level = NodePath("../..")
+
+[node name="MainCamera" parent="." instance=ExtResource("15_4r4ag")]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://45kgratefjga"]
+
+[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="1_jkpcg"]
+[ext_resource type="Shader" path="res://src/shader/scrolling_background.gdshader" id="2_tknoa"]
+[ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="3_76crd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p6ren"]
+shader = ExtResource("2_tknoa")
+shader_parameter/motion = Vector2(-10, 10)
+shader_parameter/scale = 0.5
+shader_parameter/offset = Vector2(0, 0)
+
+[node name="LevelBackground" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -140.0
+offset_right = 124.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BaseBG" type="TextureRect" parent="."]
+self_modulate = Color(1, 0.933333, 0.866667, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jkpcg")
+
+[node name="AnimatedBG" type="TextureRect" parent="."]
+self_modulate = Color(1, 0.847059, 0.745098, 1)
+material = SubResource("ShaderMaterial_p6ren")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_76crd")
+stretch_mode = 1
+flip_v = true

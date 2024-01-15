@@ -1,24 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://cyu0xu5lrd1da"]
+[gd_scene load_steps=13 format=3 uid="uid://cyu0xu5lrd1da"]
 
 [ext_resource type="Script" path="res://src/scene/level/level.gd" id="1_3cmh3"]
-[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="2_gdwfx"]
-[ext_resource type="Shader" path="res://src/shader/scrolling_background.gdshader" id="3_qfrpp"]
-[ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="4_lpyua"]
+[ext_resource type="PackedScene" uid="uid://45kgratefjga" path="res://src/scene/LevelBackground.tscn" id="2_r772h"]
 [ext_resource type="PackedScene" uid="uid://rhb1a4subqkb" path="res://src/card/CardSlot.tscn" id="5_f570c"]
 [ext_resource type="PackedScene" uid="uid://csa6mt0c5l2pw" path="res://src/card/Card.tscn" id="6_gqj7b"]
-[ext_resource type="Resource" uid="uid://bbouc3mspirtx" path="res://src/card/data/uno_yellow_6.tres" id="7_hv550"]
-[ext_resource type="Resource" uid="uid://cjc3t4v8j5p5b" path="res://src/card/data/uno_red_6.tres" id="8_x2gmw"]
-[ext_resource type="Resource" uid="uid://cl3vmd0cil1xm" path="res://src/card/data/uno_red_8.tres" id="9_g0vr7"]
-[ext_resource type="Resource" uid="uid://b8ynloc3don2p" path="res://src/card/data/uno_red_skip.tres" id="10_tgptk"]
-[ext_resource type="Resource" uid="uid://6de8xwjvl0xk" path="res://src/card/data/uno_plus4.tres" id="11_u70on"]
-[ext_resource type="Resource" uid="uid://hw8av7sy3j4u" path="res://src/card/data/uno_yellow_4.tres" id="12_wnr5w"]
+[ext_resource type="Resource" uid="uid://bbouc3mspirtx" path="res://src/card/data/uno/uno_yellow_6.tres" id="7_hv550"]
+[ext_resource type="Resource" uid="uid://cjc3t4v8j5p5b" path="res://src/card/data/uno/uno_red_6.tres" id="8_x2gmw"]
+[ext_resource type="Resource" uid="uid://cl3vmd0cil1xm" path="res://src/card/data/uno/uno_red_8.tres" id="9_g0vr7"]
+[ext_resource type="Resource" uid="uid://b8ynloc3don2p" path="res://src/card/data/uno/uno_red_skip.tres" id="10_tgptk"]
+[ext_resource type="Resource" uid="uid://6de8xwjvl0xk" path="res://src/card/data/uno/uno_plus4.tres" id="11_u70on"]
+[ext_resource type="PackedScene" uid="uid://cg4y6uj4nehtj" path="res://src/scene/MainCamera.tscn" id="12_fyeto"]
+[ext_resource type="Resource" uid="uid://hw8av7sy3j4u" path="res://src/card/data/uno/uno_yellow_4.tres" id="12_wnr5w"]
 [ext_resource type="PackedScene" uid="uid://b7o15pcamy62d" path="res://src/scene/GameUI.tscn" id="14_78hjk"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p6ren"]
-shader = ExtResource("3_qfrpp")
-shader_parameter/motion = Vector2(-10, 10)
-shader_parameter/scale = 0.5
-shader_parameter/offset = Vector2(0, 0)
 
 [node name="Level3" type="Control"]
 layout_mode = 3
@@ -31,28 +24,8 @@ script = ExtResource("1_3cmh3")
 level_id = 2
 level_description = "~The infamous card is here~"
 
-[node name="BaseBG" type="TextureRect" parent="."]
-self_modulate = Color(1, 0.933333, 0.866667, 1)
+[node name="LevelBackground" parent="." instance=ExtResource("2_r772h")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_gdwfx")
-
-[node name="AnimatedBG" type="TextureRect" parent="."]
-self_modulate = Color(1, 0.847059, 0.745098, 1)
-material = SubResource("ShaderMaterial_p6ren")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_lpyua")
-stretch_mode = 1
-flip_v = true
 
 [node name="TableCardHolder" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -131,5 +104,9 @@ data = ExtResource("12_wnr5w")
 layout_mode = 2
 data = ExtResource("8_x2gmw")
 
-[node name="GameUI" parent="." instance=ExtResource("14_78hjk")]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameUI" parent="CanvasLayer" node_paths=PackedStringArray("level") instance=ExtResource("14_78hjk")]
+level = NodePath("../..")
+
+[node name="MainCamera" parent="." instance=ExtResource("12_fyeto")]

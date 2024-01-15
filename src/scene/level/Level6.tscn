@@ -1,26 +1,19 @@
-[gd_scene load_steps=17 format=3 uid="uid://cxsq0w1qlcwl"]
+[gd_scene load_steps=15 format=3 uid="uid://cxsq0w1qlcwl"]
 
 [ext_resource type="Script" path="res://src/scene/level/level.gd" id="1_t1llq"]
-[ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="2_sl6rf"]
-[ext_resource type="Shader" path="res://src/shader/scrolling_background.gdshader" id="3_n8j7e"]
-[ext_resource type="Texture2D" uid="uid://qkvo3xwqe2ta" path="res://asset/sprite/tiled_background.png" id="4_8vrfj"]
+[ext_resource type="PackedScene" uid="uid://45kgratefjga" path="res://src/scene/LevelBackground.tscn" id="2_qd0x0"]
 [ext_resource type="PackedScene" uid="uid://rhb1a4subqkb" path="res://src/card/CardSlot.tscn" id="5_d7lpn"]
 [ext_resource type="PackedScene" uid="uid://csa6mt0c5l2pw" path="res://src/card/Card.tscn" id="6_b8jfj"]
-[ext_resource type="Resource" uid="uid://21is2aodissa" path="res://src/card/data/playing_spade_ace.tres" id="7_3n13x"]
-[ext_resource type="Resource" uid="uid://dglmsjbbngtfy" path="res://src/card/data/playing_club_jack.tres" id="9_nc5t2"]
-[ext_resource type="Resource" uid="uid://bgicn8ecssi0d" path="res://src/card/data/playing_club_6.tres" id="9_rtcaf"]
-[ext_resource type="Resource" uid="uid://cjc3t4v8j5p5b" path="res://src/card/data/uno_red_6.tres" id="10_rm3a5"]
-[ext_resource type="Resource" uid="uid://crgr2itdt0qov" path="res://src/card/data/playing_heart_ace.tres" id="11_8ryfe"]
-[ext_resource type="Resource" uid="uid://dvpv73qhap3tb" path="res://src/card/data/playing_heart_jack.tres" id="12_d787p"]
+[ext_resource type="Resource" uid="uid://21is2aodissa" path="res://src/card/data/playing_card/playing_spade_ace.tres" id="7_3n13x"]
+[ext_resource type="Resource" uid="uid://dglmsjbbngtfy" path="res://src/card/data/playing_card/playing_club_jack.tres" id="9_nc5t2"]
+[ext_resource type="Resource" uid="uid://bgicn8ecssi0d" path="res://src/card/data/playing_card/playing_club_6.tres" id="9_rtcaf"]
+[ext_resource type="Resource" uid="uid://cjc3t4v8j5p5b" path="res://src/card/data/uno/uno_red_6.tres" id="10_rm3a5"]
+[ext_resource type="Resource" uid="uid://crgr2itdt0qov" path="res://src/card/data/playing_card/playing_heart_ace.tres" id="11_8ryfe"]
+[ext_resource type="Resource" uid="uid://dvpv73qhap3tb" path="res://src/card/data/playing_card/playing_heart_jack.tres" id="12_d787p"]
 [ext_resource type="PackedScene" uid="uid://b7o15pcamy62d" path="res://src/scene/GameUI.tscn" id="13_pusv4"]
-[ext_resource type="Resource" uid="uid://de45wywoa3hs3" path="res://src/card/data/uno_red_plus2.tres" id="13_r6eyk"]
-[ext_resource type="Resource" uid="uid://bu15vwghk5sqe" path="res://src/card/data/playing_spade_2.tres" id="14_kmdu7"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p6ren"]
-shader = ExtResource("3_n8j7e")
-shader_parameter/motion = Vector2(-10, 10)
-shader_parameter/scale = 0.5
-shader_parameter/offset = Vector2(0, 0)
+[ext_resource type="Resource" uid="uid://de45wywoa3hs3" path="res://src/card/data/uno/uno_red_plus2.tres" id="13_r6eyk"]
+[ext_resource type="PackedScene" uid="uid://cg4y6uj4nehtj" path="res://src/scene/MainCamera.tscn" id="14_1kpbe"]
+[ext_resource type="Resource" uid="uid://bu15vwghk5sqe" path="res://src/card/data/playing_card/playing_spade_2.tres" id="14_kmdu7"]
 
 [node name="Level6" type="Control"]
 layout_mode = 3
@@ -34,28 +27,8 @@ level_id = 5
 level_description = "~No, letters are not number nor symbol~"
 allow_symbol_compare = true
 
-[node name="BaseBG" type="TextureRect" parent="."]
-self_modulate = Color(1, 0.933333, 0.866667, 1)
+[node name="LevelBackground" parent="." instance=ExtResource("2_qd0x0")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_sl6rf")
-
-[node name="AnimatedBG" type="TextureRect" parent="."]
-self_modulate = Color(1, 0.847059, 0.745098, 1)
-material = SubResource("ShaderMaterial_p6ren")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_8vrfj")
-stretch_mode = 1
-flip_v = true
 
 [node name="TableCardHolder" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -92,8 +65,10 @@ layout_mode = 2
 
 [node name="Card6" parent="TableCardHolder/CardSlot6" instance=ExtResource("6_b8jfj")]
 layout_mode = 2
-offset_right = 110.0
-offset_bottom = 175.0
+offset_left = 2.5
+offset_top = 2.5
+offset_right = 112.5
+offset_bottom = 177.5
 data = ExtResource("12_d787p")
 locked = true
 
@@ -146,5 +121,9 @@ data = ExtResource("13_r6eyk")
 layout_mode = 2
 data = ExtResource("14_kmdu7")
 
-[node name="GameUI" parent="." instance=ExtResource("13_pusv4")]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameUI" parent="CanvasLayer" node_paths=PackedStringArray("level") instance=ExtResource("13_pusv4")]
+level = NodePath("../..")
+
+[node name="MainCamera" parent="." instance=ExtResource("14_1kpbe")]
