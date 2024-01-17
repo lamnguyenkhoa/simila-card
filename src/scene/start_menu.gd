@@ -28,6 +28,7 @@ func _ready() -> void:
 			button.expand_icon = true
 		else:
 			button.pressed.connect(func ():  get_tree().change_scene_to_packed(GameManager.level_list[i]))
+			button.text = str(i + 1)
 
 func _on_start_button_pressed() -> void:
 	_play_button_click_sfx()

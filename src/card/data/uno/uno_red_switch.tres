@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://c7xnsg1kiuhd5"]
+
+[ext_resource type="Texture2D" uid="uid://bdtt75vaxuxu3" path="res://asset/sprite/card_sprite/uno/uno_red_switch.png" id="1_4vy4q"]
+[ext_resource type="Script" path="res://src/card/card_resource.gd" id="2_u3007"]
+
+[resource]
+script = ExtResource("2_u3007")
+card_name = "uno red switch"
+card_sprite = ExtResource("1_4vy4q")
+card_number = Array[int]([])
+card_color = Array[int]([1])
+card_symbol = Array[int]([2])
+card_origin = Array[int]([1])

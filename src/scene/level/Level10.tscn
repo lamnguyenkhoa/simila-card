@@ -2,17 +2,17 @@
 
 [ext_resource type="Script" path="res://src/scene/level/level.gd" id="1_38ndn"]
 [ext_resource type="PackedScene" uid="uid://45kgratefjga" path="res://src/scene/LevelBackground.tscn" id="2_75bkh"]
+[ext_resource type="Resource" uid="uid://b16o3jbjvho5w" path="res://src/card/data/playing_card/playing_spade_4.tres" id="5_76qpg"]
 [ext_resource type="PackedScene" uid="uid://rhb1a4subqkb" path="res://src/card/CardSlot.tscn" id="5_uvgon"]
+[ext_resource type="Resource" uid="uid://tcyaoskfg3nu" path="res://src/card/data/loveletter/loveletter_blue_4.tres" id="6_00qb1"]
 [ext_resource type="PackedScene" uid="uid://csa6mt0c5l2pw" path="res://src/card/Card.tscn" id="6_kxmss"]
+[ext_resource type="Resource" uid="uid://gdhtf02qrf1c" path="res://src/card/data/yugioh/yugioh_blue_6.tres" id="7_3c608"]
 [ext_resource type="Resource" uid="uid://cjc3t4v8j5p5b" path="res://src/card/data/uno/uno_red_6.tres" id="7_q7mf8"]
-[ext_resource type="Resource" uid="uid://b16o3jbjvho5w" path="res://src/scene/level/playing_spade_4.tres" id="7_qrfwd"]
-[ext_resource type="Resource" uid="uid://tcyaoskfg3nu" path="res://src/scene/level/loveletter_blue_4.tres" id="8_bsqb3"]
 [ext_resource type="Resource" uid="uid://b1cmcrdyugnnj" path="res://src/card/data/playing_card/playing_diamond_4.tres" id="8_r7sms"]
-[ext_resource type="Resource" uid="uid://gdhtf02qrf1c" path="res://src/scene/level/yugioh_blue_6.tres" id="9_fgmj5"]
-[ext_resource type="Resource" uid="uid://bm2q2craluaki" path="res://src/scene/level/loveletter_red_2.tres" id="11_y1etc"]
-[ext_resource type="Resource" uid="uid://cw520gba7flrr" path="res://src/scene/level/playing_diamond_7.tres" id="13_4q1er"]
+[ext_resource type="Resource" uid="uid://bm2q2craluaki" path="res://src/card/data/loveletter/loveletter_red_2.tres" id="9_8soct"]
+[ext_resource type="Resource" uid="uid://cw520gba7flrr" path="res://src/card/data/playing_card/playing_diamond_7.tres" id="11_fje87"]
+[ext_resource type="Resource" uid="uid://tvi71w86imiv" path="res://src/card/data/uno/uno_green_7.tres" id="12_awbvp"]
 [ext_resource type="PackedScene" uid="uid://cg4y6uj4nehtj" path="res://src/scene/MainCamera.tscn" id="14_fjhkj"]
-[ext_resource type="Resource" uid="uid://tvi71w86imiv" path="res://src/scene/level/uno_green_7.tres" id="14_mwdgn"]
 [ext_resource type="PackedScene" uid="uid://b7o15pcamy62d" path="res://src/scene/GameUI.tscn" id="16_6o7he"]
 
 [node name="Level10" type="Control"]
@@ -24,7 +24,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_38ndn")
 level_id = 9
-level_description = "~These new cards are from a game called Love Letter~"
+level_description = "~These new cards are from a game called Love Letter~
+~It's a game of risk, deduction, and luck~"
 allow_symbol_compare = true
 
 [node name="LevelBackground" parent="." instance=ExtResource("2_75bkh")]
@@ -86,15 +87,15 @@ alignment = 1
 
 [node name="Card" parent="HandCardHolder" instance=ExtResource("6_kxmss")]
 layout_mode = 2
-data = ExtResource("7_qrfwd")
+data = ExtResource("5_76qpg")
 
 [node name="Card2" parent="HandCardHolder" instance=ExtResource("6_kxmss")]
 layout_mode = 2
-data = ExtResource("8_bsqb3")
+data = ExtResource("6_00qb1")
 
 [node name="Card3" parent="HandCardHolder" instance=ExtResource("6_kxmss")]
 layout_mode = 2
-data = ExtResource("9_fgmj5")
+data = ExtResource("7_3c608")
 
 [node name="Card4" parent="HandCardHolder" instance=ExtResource("6_kxmss")]
 layout_mode = 2
@@ -102,7 +103,7 @@ data = ExtResource("7_q7mf8")
 
 [node name="Card5" parent="HandCardHolder" instance=ExtResource("6_kxmss")]
 layout_mode = 2
-data = ExtResource("11_y1etc")
+data = ExtResource("9_8soct")
 
 [node name="Card6" parent="HandCardHolder" instance=ExtResource("6_kxmss")]
 layout_mode = 2
@@ -110,11 +111,11 @@ data = ExtResource("8_r7sms")
 
 [node name="Card7" parent="HandCardHolder" instance=ExtResource("6_kxmss")]
 layout_mode = 2
-data = ExtResource("13_4q1er")
+data = ExtResource("11_fje87")
 
 [node name="Card8" parent="HandCardHolder" instance=ExtResource("6_kxmss")]
 layout_mode = 2
-data = ExtResource("14_mwdgn")
+data = ExtResource("12_awbvp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
