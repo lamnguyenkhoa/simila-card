@@ -7,7 +7,7 @@ func _ready() -> void:
 	center_viewport = get_viewport().get_visible_rect().size / 2
 
 func _process(_delta):
-	if not GameManager.setting_ui.camera_sway_enabled:
+	if not GameManager.camera_sway_enabled:
 		position = Vector2.ZERO
 	else:
 		var mouse_pos = get_viewport().get_mouse_position()

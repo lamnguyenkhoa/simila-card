@@ -32,7 +32,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3ikws")
 level_id = 7
-level_description = "~Ooh, yugi*h cards. The number of red and yellow circles is the level of the monster in Yugi*h, just saying~"
+level_description = "~The number of red and yellow circles is the level of the monster in Yugi*h, just saying~
+~If it hard to see, turn on the zoom camera in Setting menu~"
 allow_symbol_compare = true
 
 [node name="LevelBackground" parent="." instance=ExtResource("2_24evc")]
@@ -87,9 +88,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -226.0
+offset_left = -283.0
 offset_top = -84.0
-offset_right = 226.0
+offset_right = 283.0
 offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 0

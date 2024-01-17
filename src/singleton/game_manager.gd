@@ -12,6 +12,10 @@ var game_ui: GameUI
 var main_camera: Camera2D
 var setting_ui: SettingUI
 
+# Setting stuff
+var zoom_camera_enabled = false
+var camera_sway_enabled = true
+
 var selected_card: Card
 var highest_level_id: int = 0 # Level_id equal or lower than this are unlocked
 

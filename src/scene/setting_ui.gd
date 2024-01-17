@@ -4,14 +4,15 @@ class_name SettingUI
 @onready var setting_panel: Panel = $SettingPanel
 @onready var bgm_slider: HSlider = $SettingPanel/BGMSlider
 @onready var sfx_slider: HSlider = $SettingPanel/SFXSlider
+@onready var zoom_camera_button: Button = $SettingPanel/ZoomCameraButton
+@onready var camera_sway_button: Button = $SettingPanel/CameraSwayButton
 
-var zoom_camera_enabled = false
-var camera_sway_enabled = true
 
 func _ready() -> void:
 	bgm_slider.value = SoundManager.get_music_volume() * 100
 	sfx_slider.value = SoundManager.get_sound_volume() * 100
-	GameManager.setting_ui = self
+	zoom_camera_button.button_pressed = GameManager.zoom_camera_enabled
+	camera_sway_button.button_pressed = not GameManager.camera_sway_enabled
 
 func _on_setting_button_pressed() -> void:
 	setting_panel.visible = !setting_panel.visible
@@ -31,8 +32,8 @@ func _on_button_mouse_entered() -> void:
 
 
 func _on_zoom_camera_button_toggled(button_pressed:bool) -> void:
-	zoom_camera_enabled = button_pressed
+	GameManager.zoom_camera_enabled = button_pressed
 
 
 func _on_camera_sway_button_toggled(button_pressed:bool) -> void:
-	camera_sway_enabled = not button_pressed
+	GameManager.camera_sway_enabled = not button_pressed

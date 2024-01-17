@@ -27,7 +27,7 @@ func _ready() -> void:
 		GameManager.game_ui = self
 
 func _process(_delta):
-	if Engine.is_editor_hint() or not GameManager.setting_ui.zoom_camera_enabled:
+	if Engine.is_editor_hint() or not GameManager.zoom_camera_enabled:
 		return
 
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -46,7 +46,7 @@ func setup_similarity_label():
 		similarity_label.text += '\n- Origin'
 
 func show_zoom_camera(card: Card, _visible: bool):
-	if not GameManager.setting_ui.zoom_camera_enabled:
+	if not GameManager.zoom_camera_enabled:
 		_visible = false
 	viewport_container.visible = _visible
 	if not _visible:
