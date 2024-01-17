@@ -6,6 +6,7 @@ class_name SettingUI
 @onready var sfx_slider: HSlider = $SettingPanel/SFXSlider
 
 var zoom_camera_enabled = false
+var camera_sway_enabled = true
 
 func _ready() -> void:
 	bgm_slider.value = SoundManager.get_music_volume() * 100
@@ -31,3 +32,7 @@ func _on_button_mouse_entered() -> void:
 
 func _on_zoom_camera_button_toggled(button_pressed:bool) -> void:
 	zoom_camera_enabled = button_pressed
+
+
+func _on_camera_sway_button_toggled(button_pressed:bool) -> void:
+	camera_sway_enabled = not button_pressed

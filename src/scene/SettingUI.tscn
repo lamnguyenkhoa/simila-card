@@ -39,7 +39,7 @@ anchor_right = 1.0
 offset_left = -278.0
 offset_top = 56.0
 offset_right = -14.0
-offset_bottom = 184.0
+offset_bottom = 224.0
 grow_horizontal = 0
 
 [node name="BGMSlider" type="HSlider" parent="SettingPanel"]
@@ -99,9 +99,26 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_n41g4")
 toggle_mode = true
 text = "Enable zoom camera"
 
+[node name="CameraSwayButton" type="Button" parent="SettingPanel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 128.0
+offset_right = 144.0
+offset_bottom = 158.0
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n41g4")
+toggle_mode = true
+text = "Disable camera sway"
+
 [connection signal="mouse_entered" from="SettingButton" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="SettingButton" to="." method="_on_setting_button_pressed"]
 [connection signal="value_changed" from="SettingPanel/BGMSlider" to="." method="_on_bgm_slider_value_changed"]
 [connection signal="value_changed" from="SettingPanel/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="mouse_entered" from="SettingPanel/ZoomCameraButton" to="." method="_on_button_mouse_entered"]
 [connection signal="toggled" from="SettingPanel/ZoomCameraButton" to="." method="_on_zoom_camera_button_toggled"]
+[connection signal="mouse_entered" from="SettingPanel/CameraSwayButton" to="." method="_on_button_mouse_entered"]
+[connection signal="toggled" from="SettingPanel/CameraSwayButton" to="." method="_on_camera_sway_button_toggled"]
