@@ -37,3 +37,7 @@ func _on_zoom_camera_button_toggled(button_pressed:bool) -> void:
 
 func _on_camera_sway_button_toggled(button_pressed:bool) -> void:
 	GameManager.camera_sway_enabled = not button_pressed
+
+
+func _on_show_card_color_button_toggled(button_pressed:bool) -> void:
+	GameManager.change_setting_show_card_color(button_pressed)

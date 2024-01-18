@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://csa6mt0c5l2pw"]
+[gd_scene load_steps=4 format=3 uid="uid://csa6mt0c5l2pw"]
 
 [ext_resource type="Texture2D" uid="uid://h35lcp27rrtr" path="res://asset/sprite/square.png" id="1_p8mai"]
 [ext_resource type="Script" path="res://src/card/card.gd" id="2_nfjgt"]
+
+[sub_resource type="Theme" id="Theme_tahat"]
+TooltipLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+TooltipLabel/font_sizes/font_size = 20
 
 [node name="Card" type="Control"]
 custom_minimum_size = Vector2(110, 175)
@@ -13,6 +17,7 @@ script = ExtResource("2_nfjgt")
 layout_mode = 0
 offset_right = 110.0
 offset_bottom = 175.0
+theme = SubResource("Theme_tahat")
 texture = ExtResource("1_p8mai")
 expand_mode = 1
 

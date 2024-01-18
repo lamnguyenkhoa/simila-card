@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcgbjefvhsgef"]
+[gd_scene load_steps=4 format=3 uid="uid://bcgbjefvhsgef"]
 
 [ext_resource type="Script" path="res://src/scene/setting_ui.gd" id="1_ttutr"]
+[ext_resource type="Texture2D" uid="uid://cvy7107adgmop" path="res://asset/sprite/help_icon.png" id="2_uo4qq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n41g4"]
 
@@ -39,7 +40,7 @@ anchor_right = 1.0
 offset_left = -278.0
 offset_top = 56.0
 offset_right = -14.0
-offset_bottom = 224.0
+offset_bottom = 264.0
 grow_horizontal = 0
 
 [node name="BGMSlider" type="HSlider" parent="SettingPanel"]
@@ -86,9 +87,9 @@ text = "SFX"
 
 [node name="ZoomCameraButton" type="Button" parent="SettingPanel"]
 layout_mode = 0
-offset_left = 8.0
+offset_left = 64.0
 offset_top = 88.0
-offset_right = 144.0
+offset_right = 200.0
 offset_bottom = 118.0
 theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
@@ -99,11 +100,33 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_n41g4")
 toggle_mode = true
 text = "Enable zoom camera"
 
+[node name="Label" type="Label" parent="SettingPanel/ZoomCameraButton"]
+visible = false
+layout_mode = 0
+offset_left = 168.0
+offset_top = 8.0
+offset_right = 208.0
+offset_bottom = 33.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Off"
+
+[node name="HelpIcon" type="TextureRect" parent="SettingPanel/ZoomCameraButton"]
+modulate = Color(0.972549, 0.968627, 1, 1)
+layout_mode = 0
+offset_left = 144.0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 24.0
+tooltip_text = "You can see the zoomed area around the mouse cursor when hover it over a card."
+texture = ExtResource("2_uo4qq")
+expand_mode = 2
+
 [node name="CameraSwayButton" type="Button" parent="SettingPanel"]
 layout_mode = 0
-offset_left = 8.0
+offset_left = 64.0
 offset_top = 128.0
-offset_right = 144.0
+offset_right = 201.0
 offset_bottom = 158.0
 theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
@@ -112,8 +135,64 @@ theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_n41g4")
 toggle_mode = true
-button_pressed = true
 text = "Disable camera sway"
+
+[node name="Label" type="Label" parent="SettingPanel/CameraSwayButton"]
+visible = false
+layout_mode = 0
+offset_left = 168.0
+offset_top = 8.0
+offset_right = 208.0
+offset_bottom = 33.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Off"
+
+[node name="HelpIcon" type="TextureRect" parent="SettingPanel/CameraSwayButton"]
+modulate = Color(0.972549, 0.968627, 1, 1)
+offset_left = 144.0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 24.0
+tooltip_text = "Disable the movement of camera when you moving your mouse around."
+texture = ExtResource("2_uo4qq")
+expand_mode = 2
+
+[node name="ShowCardColorButton" type="Button" parent="SettingPanel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 168.0
+offset_right = 200.0
+offset_bottom = 198.0
+theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n41g4")
+toggle_mode = true
+text = "Show card color"
+
+[node name="Label" type="Label" parent="SettingPanel/ShowCardColorButton"]
+visible = false
+layout_mode = 0
+offset_left = 168.0
+offset_top = 8.0
+offset_right = 208.0
+offset_bottom = 33.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Off"
+
+[node name="HelpIcon" type="TextureRect" parent="SettingPanel/ShowCardColorButton"]
+modulate = Color(0.972549, 0.968627, 1, 1)
+offset_left = 144.0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 24.0
+tooltip_text = "If you hover the mouse over a card for a while, a tooltip with the card color will appear."
+texture = ExtResource("2_uo4qq")
+expand_mode = 2
 
 [connection signal="mouse_entered" from="SettingButton" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="SettingButton" to="." method="_on_setting_button_pressed"]
@@ -123,3 +202,5 @@ text = "Disable camera sway"
 [connection signal="toggled" from="SettingPanel/ZoomCameraButton" to="." method="_on_zoom_camera_button_toggled"]
 [connection signal="mouse_entered" from="SettingPanel/CameraSwayButton" to="." method="_on_button_mouse_entered"]
 [connection signal="toggled" from="SettingPanel/CameraSwayButton" to="." method="_on_camera_sway_button_toggled"]
+[connection signal="mouse_entered" from="SettingPanel/ShowCardColorButton" to="." method="_on_button_mouse_entered"]
+[connection signal="toggled" from="SettingPanel/ShowCardColorButton" to="." method="_on_show_card_color_button_toggled"]

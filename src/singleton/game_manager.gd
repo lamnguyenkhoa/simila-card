@@ -2,6 +2,7 @@ extends Node
 
 signal card_moved(card)
 signal level_finished(level_id)
+signal update_card
 
 @export var bgm: AudioStream
 @export var start_menu: PackedScene
@@ -15,6 +16,7 @@ var setting_ui: SettingUI
 # Setting stuff
 var zoom_camera_enabled = false
 var camera_sway_enabled = true
+var show_card_color = false
 
 var selected_card: Card
 var highest_level_id: int = 0 # Level_id equal or lower than this are unlocked
@@ -28,6 +30,10 @@ func update_current_level(level: Level):
 	current_level = level
 	if current_level.level_id > highest_level_id:
 		highest_level_id = current_level.level_id
+
+func change_setting_show_card_color(show: bool):
+	show_card_color = show
+	emit_signal("update_card")
 
 
 func finish_level():

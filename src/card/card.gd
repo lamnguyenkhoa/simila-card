@@ -22,6 +22,8 @@ func _ready() -> void:
 	if not Engine.is_editor_hint():
 		texture_original_pos = card_texture.position
 		GameManager.card_moved.connect(_on_card_moved)
+		GameManager.update_card.connect(update_card_color_toolip)
+		update_card_color_toolip()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_mouse") and highlighted:
@@ -38,6 +40,20 @@ func _input(event: InputEvent) -> void:
 				GameManager.selected_card = null
 		else:
 			GameManager.current_level.move_card_table_to_hand(self)
+
+
+func update_card_color_toolip():
+	if GameManager.show_card_color:
+		var color_arr = EnumAutoload.CardColor.keys()
+		var res = ""
+		for e in data.card_color:
+			res += color_arr[e].capitalize() + ", "
+		# Remove the comma for last item
+		if len(res) > 0:
+			res = res.left(res.length() - 2)
+		card_texture.tooltip_text = res
+	else:
+		card_texture.tooltip_text = ""
 
 func set_unselected():
 	highlighted = false
