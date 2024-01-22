@@ -5,4 +5,5 @@
 [node name="MainCamera" type="Camera2D"]
 anchor_mode = 0
 position_smoothing_enabled = true
+position_smoothing_speed = 4.0
 script = ExtResource("1_wkljv")

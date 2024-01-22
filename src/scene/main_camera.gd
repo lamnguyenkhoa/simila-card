@@ -11,5 +11,5 @@ func _process(_delta):
 		position = Vector2.ZERO
 	else:
 		var mouse_pos = get_viewport().get_mouse_position()
-		var camera_offset = (mouse_pos - center_viewport) / 40
+		var camera_offset = (mouse_pos - center_viewport) / 80
 		position = camera_offset
