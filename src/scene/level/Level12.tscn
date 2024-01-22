@@ -1,0 +1,137 @@
+[gd_scene load_steps=16 format=3 uid="uid://dxhybqmaykqa8"]
+
+[ext_resource type="Script" path="res://src/scene/level/level.gd" id="1_tu3go"]
+[ext_resource type="PackedScene" uid="uid://45kgratefjga" path="res://src/scene/LevelBackground.tscn" id="2_4hma4"]
+[ext_resource type="PackedScene" uid="uid://rhb1a4subqkb" path="res://src/card/CardSlot.tscn" id="3_oydn7"]
+[ext_resource type="PackedScene" uid="uid://csa6mt0c5l2pw" path="res://src/card/Card.tscn" id="4_nxnfg"]
+[ext_resource type="Resource" uid="uid://hpcddtx3uvhn" path="res://src/scene/level/loveletter_green_6.tres" id="5_1i4y3"]
+[ext_resource type="Resource" uid="uid://cpkprjhkq4ns6" path="res://src/scene/level/loveletter_yellow_5.tres" id="5_2yfvn"]
+[ext_resource type="Resource" uid="uid://by7towhlk7if3" path="res://src/scene/level/pokemon_yellow.tres" id="7_17ggq"]
+[ext_resource type="Resource" uid="uid://b22gbg068524m" path="res://src/card/data/uno/uno_yellow_skip.tres" id="8_uve3s"]
+[ext_resource type="Resource" uid="uid://dvn0msoovc18i" path="res://src/card/data/uno/uno_blue_skip.tres" id="9_kjyal"]
+[ext_resource type="Resource" uid="uid://081v44qce37q" path="res://src/card/data/uno/uno_blue_3.tres" id="10_i10md"]
+[ext_resource type="Resource" uid="uid://bro31cesqqgdm" path="res://src/scene/level/playing_heart_6_blue.tres" id="11_cgyw0"]
+[ext_resource type="Resource" uid="uid://ce0gtnv4jh2hk" path="res://src/card/data/uno/uno_green_switch.tres" id="11_gxuif"]
+[ext_resource type="Resource" uid="uid://ugerc77uw1bw" path="res://src/scene/level/pokemon_green.tres" id="12_k5ifp"]
+[ext_resource type="PackedScene" uid="uid://b7o15pcamy62d" path="res://src/scene/GameUI.tscn" id="13_q7l80"]
+[ext_resource type="PackedScene" uid="uid://cg4y6uj4nehtj" path="res://src/scene/MainCamera.tscn" id="14_tlwwn"]
+
+[node name="Level12" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tu3go")
+level_id = 11
+level_description = "~Generally, if a number is hard to see, it won't count~"
+allow_symbol_compare = true
+
+[node name="LevelBackground" parent="." instance=ExtResource("2_4hma4")]
+layout_mode = 1
+
+[node name="TableCardHolder" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -98.5
+offset_right = 283.0
+offset_bottom = 81.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="CardSlot" parent="TableCardHolder" instance=ExtResource("3_oydn7")]
+layout_mode = 2
+
+[node name="CardSlot2" parent="TableCardHolder" instance=ExtResource("3_oydn7")]
+layout_mode = 2
+
+[node name="CardSlot3" parent="TableCardHolder" instance=ExtResource("3_oydn7")]
+layout_mode = 2
+
+[node name="CardSlot4" parent="TableCardHolder" instance=ExtResource("3_oydn7")]
+layout_mode = 2
+
+[node name="CardSlot5" parent="TableCardHolder" instance=ExtResource("3_oydn7")]
+layout_mode = 2
+
+[node name="Card5" parent="TableCardHolder/CardSlot5" instance=ExtResource("4_nxnfg")]
+layout_mode = 2
+offset_left = 2.5
+offset_top = 2.5
+offset_right = 112.5
+offset_bottom = 177.5
+data = ExtResource("10_i10md")
+locked = true
+
+[node name="CardSlot6" parent="TableCardHolder" instance=ExtResource("3_oydn7")]
+layout_mode = 2
+
+[node name="CardSlot7" parent="TableCardHolder" instance=ExtResource("3_oydn7")]
+layout_mode = 2
+
+[node name="CardSlot8" parent="TableCardHolder" instance=ExtResource("3_oydn7")]
+layout_mode = 2
+
+[node name="CardSlot9" parent="TableCardHolder" instance=ExtResource("3_oydn7")]
+layout_mode = 2
+
+[node name="HandCardHolder" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -226.0
+offset_top = -84.0
+offset_right = 226.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Card" parent="HandCardHolder" instance=ExtResource("4_nxnfg")]
+layout_mode = 2
+data = ExtResource("5_2yfvn")
+
+[node name="Card2" parent="HandCardHolder" instance=ExtResource("4_nxnfg")]
+layout_mode = 2
+data = ExtResource("7_17ggq")
+
+[node name="Card3" parent="HandCardHolder" instance=ExtResource("4_nxnfg")]
+layout_mode = 2
+data = ExtResource("8_uve3s")
+
+[node name="Card4" parent="HandCardHolder" instance=ExtResource("4_nxnfg")]
+layout_mode = 2
+data = ExtResource("9_kjyal")
+
+[node name="Card6" parent="HandCardHolder" instance=ExtResource("4_nxnfg")]
+layout_mode = 2
+data = ExtResource("11_cgyw0")
+
+[node name="Card7" parent="HandCardHolder" instance=ExtResource("4_nxnfg")]
+layout_mode = 2
+data = ExtResource("5_1i4y3")
+
+[node name="Card8" parent="HandCardHolder" instance=ExtResource("4_nxnfg")]
+layout_mode = 2
+data = ExtResource("12_k5ifp")
+
+[node name="Card9" parent="HandCardHolder" instance=ExtResource("4_nxnfg")]
+layout_mode = 2
+data = ExtResource("11_gxuif")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameUI" parent="CanvasLayer" node_paths=PackedStringArray("level") instance=ExtResource("13_q7l80")]
+level = NodePath("../..")
+
+[node name="MainCamera" parent="." instance=ExtResource("14_tlwwn")]

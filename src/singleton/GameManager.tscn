@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bvrqgurjm47eo"]
+[gd_scene load_steps=16 format=3 uid="uid://bvrqgurjm47eo"]
 
 [ext_resource type="Script" path="res://src/singleton/game_manager.gd" id="1_8w13l"]
 [ext_resource type="PackedScene" uid="uid://cqwfl4qfjkf26" path="res://src/scene/StartMenu.tscn" id="2_d0kxn"]
@@ -14,9 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://kafuiyyflk7x" path="res://src/scene/level/Level9.tscn" id="12_cletw"]
 [ext_resource type="PackedScene" uid="uid://c2e3a1td7t01x" path="res://src/scene/level/Level10.tscn" id="13_5tyiq"]
 [ext_resource type="PackedScene" uid="uid://twk4q0ceyxkl" path="res://src/scene/level/Level11.tscn" id="14_kpgrj"]
+[ext_resource type="PackedScene" uid="uid://dxhybqmaykqa8" path="res://src/scene/level/Level12.tscn" id="15_i3puw"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_8w13l")
 bgm = ExtResource("2_gcnvy")
 start_menu = ExtResource("2_d0kxn")
-level_list = Array[PackedScene]([ExtResource("2_rr65b"), ExtResource("4_prkvr"), ExtResource("5_w41va"), ExtResource("6_f4hdj"), ExtResource("7_rastv"), ExtResource("8_iltvp"), ExtResource("9_u0qqw"), ExtResource("10_dlhr0"), ExtResource("12_cletw"), ExtResource("13_5tyiq"), ExtResource("14_kpgrj")])
+level_list = Array[PackedScene]([ExtResource("2_rr65b"), ExtResource("4_prkvr"), ExtResource("5_w41va"), ExtResource("6_f4hdj"), ExtResource("7_rastv"), ExtResource("8_iltvp"), ExtResource("9_u0qqw"), ExtResource("10_dlhr0"), ExtResource("12_cletw"), ExtResource("13_5tyiq"), ExtResource("14_kpgrj"), ExtResource("15_i3puw")])

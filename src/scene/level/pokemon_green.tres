@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://ugerc77uw1bw"]
+
+[ext_resource type="Texture2D" uid="uid://ditag2joiubvh" path="res://asset/sprite/card_sprite/pokemon/pokemon_green.png" id="1_c46wo"]
+[ext_resource type="Script" path="res://src/card/card_resource.gd" id="2_s5yqg"]
+
+[resource]
+script = ExtResource("2_s5yqg")
+card_name = "pokemon green"
+card_sprite = ExtResource("1_c46wo")
+card_number = Array[int]([])
+card_color = Array[int]([2])
+card_symbol = Array[int]([])
+card_origin = Array[int]([6])

@@ -150,6 +150,7 @@ text = "Off"
 
 [node name="HelpIcon" type="TextureRect" parent="SettingPanel/CameraSwayButton"]
 modulate = Color(0.972549, 0.968627, 1, 1)
+layout_mode = 0
 offset_left = 144.0
 offset_top = 8.0
 offset_right = 160.0
@@ -186,6 +187,7 @@ text = "Off"
 
 [node name="HelpIcon" type="TextureRect" parent="SettingPanel/ShowCardColorButton"]
 modulate = Color(0.972549, 0.968627, 1, 1)
+layout_mode = 0
 offset_left = 144.0
 offset_top = 8.0
 offset_right = 160.0
