@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://c20y71jf6gavv"
-path="res://.godot/imported/Glittery Snowfall.ttf-da55af87df7e81b278c4e2bc2b133311.fontdata"
+uid="uid://c4hbrx27wi642"
+path="res://.godot/imported/DroidSansJapanese.woff2-26ae4c07ad43a92df15b576d27e9faf0.fontdata"
 
 [deps]
 
-source_file="res://asset/font/Glittery Snowfall.ttf"
-dest_files=["res://.godot/imported/Glittery Snowfall.ttf-da55af87df7e81b278c4e2bc2b133311.fontdata"]
+source_file="res://asset/font/DroidSansJapanese.woff2"
+dest_files=["res://.godot/imported/DroidSansJapanese.woff2-26ae4c07ad43a92df15b576d27e9faf0.fontdata"]
 
 [params]
 

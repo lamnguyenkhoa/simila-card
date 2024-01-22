@@ -78,7 +78,7 @@ grow_vertical = 2
 script = ExtResource("1_g8jdg")
 level_id = 1
 level_description = "~Remember, similar NUMBER~
-(◐ω◑)"
+(ノ= ω = )ノ"
 
 [node name="LevelBackground" parent="." instance=ExtResource("2_6srdt")]
 layout_mode = 1

@@ -35,7 +35,7 @@ grow_vertical = 2
 script = ExtResource("1_en5o6")
 level_id = 8
 level_description = "~That black yugioh card's \"level\" is a bit different, but you can count them just fine~
-(◐ω◑ )"
+(  . .)"
 allow_symbol_compare = true
 
 [node name="LevelBackground" parent="." instance=ExtResource("2_5yo5h")]

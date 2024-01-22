@@ -24,7 +24,7 @@ script = ExtResource("1_u44ix")
 level_id = 4
 level_description = "~Well, U*o cards only would be boring isn't it~
 ~Symbol is also counted for similarity now, yay~
-(＾▽＾)"
+(¬‿¬ )"
 allow_symbol_compare = true
 
 [node name="LevelBackground" parent="." instance=ExtResource("2_5axlo")]

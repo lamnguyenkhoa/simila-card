@@ -29,7 +29,7 @@ window/size/viewport_height=768
 
 [gui]
 
-theme/custom_font="res://asset/font/Glittery Snowfall.ttf"
+theme/custom_font="res://asset/font/GlitterySnowfall.ttf"
 
 [input]
 

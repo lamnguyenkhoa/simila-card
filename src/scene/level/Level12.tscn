@@ -26,7 +26,7 @@ grow_vertical = 2
 script = ExtResource("1_tu3go")
 level_id = 11
 level_description = "~Generally, if a number is hard to see, it won't count~
-(◑‿◐)"
+( ´(ｴ)ˋ )"
 allow_symbol_compare = true
 
 [node name="LevelBackground" parent="." instance=ExtResource("2_4hma4")]
