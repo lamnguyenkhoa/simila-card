@@ -22,7 +22,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jaeqf")
 level_id = 6
-level_description = "~Some levels has a slightly different ruleset, check the leftside of the screen~"
+level_description = "~Some levels has a slightly different ruleset, check the leftside of the screen~
+(◕‸ ◕✿)"
 allow_number_compare = false
 allow_symbol_compare = true
 

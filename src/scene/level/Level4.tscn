@@ -24,7 +24,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ahuam")
 level_id = 3
-level_description = "~Caution: Similar symbol is not counted (yet)~"
+level_description = "~Caution: Similar symbol is not counted (yet)~
+(☉_☉)"
 
 [node name="LevelBackground" parent="." instance=ExtResource("2_duk0g")]
 layout_mode = 1

@@ -20,7 +20,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t1sgn")
 level_description = "~Put cards with the same color or the same number next to each other~
-~Check the Setting menu if you want some accessibility options~"
+~Check the Setting menu if you want some accessibility options~
+(*^‿^*)"
 
 [node name="LevelBackground" parent="." instance=ExtResource("2_bd04u")]
 layout_mode = 1

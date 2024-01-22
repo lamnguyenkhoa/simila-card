@@ -24,7 +24,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2onun")
 level_id = 10
-level_description = "~What? No, every card is fine and legit, nothing wrong at all~"
+level_description = "~What? No, every card is fine and legit, nothing wrong at all~
+(；☉_☉)"
 allow_number_compare = false
 allow_symbol_compare = true
 

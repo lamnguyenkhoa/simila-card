@@ -33,7 +33,8 @@ grow_vertical = 2
 script = ExtResource("1_3ikws")
 level_id = 7
 level_description = "~The number of red and yellow circles is the level of the monster in Yugi*h, just saying~
-~If it hard to see, turn on the zoom camera in Setting menu~"
+~If it hard to see, turn on the zoom camera in Setting menu~
+(づ ◕‿◕ )づ"
 allow_symbol_compare = true
 
 [node name="LevelBackground" parent="." instance=ExtResource("2_24evc")]

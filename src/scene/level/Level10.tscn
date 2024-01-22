@@ -25,7 +25,8 @@ grow_vertical = 2
 script = ExtResource("1_38ndn")
 level_id = 9
 level_description = "~These new cards are from a game called Love Letter~
-~It's a game of risk, deduction, and luck~"
+~It's a game of risk, deduction, and luck~
+(─‿─)"
 allow_symbol_compare = true
 
 [node name="LevelBackground" parent="." instance=ExtResource("2_75bkh")]

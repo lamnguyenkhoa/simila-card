@@ -24,7 +24,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t1llq")
 level_id = 5
-level_description = "~No, letters are not number nor symbol~"
+level_description = "~No, letters are not number nor symbol~
+´･ᴗ･`"
 allow_symbol_compare = true
 
 [node name="LevelBackground" parent="." instance=ExtResource("2_qd0x0")]
