@@ -57,7 +57,7 @@ func check_eligible(card: Card, card_slot: CardSlot) -> bool:
 	if left_slot != null and left_slot.check_if_already_has_card():
 		var left_card = left_slot.get_stored_card()
 		var left_res = compare_card(left_card, card)
-		if left_res == "Dissimilar!":
+		if left_res == "Dissimilar!" or left_res == "Disallowed!":
 			card_slot.show_check_result(left_res, false, true)
 			return false
 		else:
@@ -66,7 +66,7 @@ func check_eligible(card: Card, card_slot: CardSlot) -> bool:
 	if right_slot != null and right_slot.check_if_already_has_card():
 		var right_card = right_slot.get_stored_card()
 		var right_res = compare_card(right_card, card)
-		if right_res == "Dissimilar!":
+		if right_res == "Dissimilar!" or right_res == "Disallowed!":
 			card_slot.show_check_result(right_res, false, false)
 			return false
 		else:
@@ -75,22 +75,34 @@ func check_eligible(card: Card, card_slot: CardSlot) -> bool:
 	return true
 
 func compare_card(card_to_check: Card, placed_card: Card) -> String:
-	if allow_number_compare:
-		var common_numbers = intersect(card_to_check.data.card_number, placed_card.data.card_number)
-		if len(common_numbers) > 0:
+	var has_disallowed = false
+	var common_numbers = intersect(card_to_check.data.card_number, placed_card.data.card_number)
+	if len(common_numbers) > 0:
+		if allow_number_compare:
 			return "Similar\nnumber!"
-	if allow_color_compare:
-		var common_colors = intersect(card_to_check.data.card_color, placed_card.data.card_color)
-		if len(common_colors) > 0:
+		else:
+			has_disallowed = true
+	var common_colors = intersect(card_to_check.data.card_color, placed_card.data.card_color)
+	if len(common_colors) > 0:
+		if allow_color_compare:
 			return "Similar\ncolor!"
-	if allow_symbol_compare:
-		var common_symbols = intersect(card_to_check.data.card_symbol, placed_card.data.card_symbol)
-		if len(common_symbols) > 0:
+		else:
+			has_disallowed = true
+	var common_symbols = intersect(card_to_check.data.card_symbol, placed_card.data.card_symbol)
+	if len(common_symbols) > 0:
+		if allow_symbol_compare:
 			return "Similar\ntype!"
+		else:
+			has_disallowed = true
+
+	# Origin is a special case, so no has_disallowed
 	if allow_origin_compare:
 		var common_origins = intersect(card_to_check.data.card_origin, placed_card.data.card_origin)
 		if len(common_origins) > 0:
 			return "Similar\ntype!"
+
+	if has_disallowed:
+		return "Disallowed!"
 	return "Dissimilar!"
 
 
