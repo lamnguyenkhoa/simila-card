@@ -186,6 +186,7 @@ text = "Quit"
 flat = true
 
 [node name="JapaneseTitle" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 92.0
 offset_top = 368.0
 offset_right = 357.0

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://bsey6lb1ba8gg"]
+
+[ext_resource type="Texture2D" uid="uid://44yil4iums6m" path="res://asset/sprite/card_sprite/loveletter/loveletter_purple_3.png" id="1_0qkpx"]
+[ext_resource type="Script" path="res://src/card/card_resource.gd" id="2_ic4xq"]
+
+[resource]
+script = ExtResource("2_ic4xq")
+card_name = "loveletter purple 3"
+card_sprite = ExtResource("1_0qkpx")
+card_number = Array[int]([3])
+card_color = Array[int]([8])
+card_symbol = Array[int]([])
+card_origin = Array[int]([5])

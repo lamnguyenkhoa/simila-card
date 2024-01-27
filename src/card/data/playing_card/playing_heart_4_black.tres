@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://c53lkowb5vgwb"]
+
+[ext_resource type="Texture2D" uid="uid://es5bc02362u" path="res://asset/sprite/card_sprite/playing_card/playing_heart_4_black.png" id="1_ojqrm"]
+[ext_resource type="Script" path="res://src/card/card_resource.gd" id="2_bcp57"]
+
+[resource]
+script = ExtResource("2_bcp57")
+card_name = "playing heart 4 black"
+card_sprite = ExtResource("1_ojqrm")
+card_number = Array[int]([4])
+card_color = Array[int]([6])
+card_symbol = Array[int]([5])
+card_origin = Array[int]([4])

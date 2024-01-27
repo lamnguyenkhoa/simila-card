@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://bjsk1q4x8yerd"]
+
+[ext_resource type="Texture2D" uid="uid://d3ofpaokpfcn" path="res://asset/sprite/card_sprite/other/credit_yellow.png" id="1_pn4qe"]
+[ext_resource type="Script" path="res://src/card/card_resource.gd" id="2_5yi84"]
+
+[resource]
+script = ExtResource("2_5yi84")
+card_name = "yellow credit card"
+card_sprite = ExtResource("1_pn4qe")
+card_number = Array[int]([])
+card_color = Array[int]([4])
+card_symbol = Array[int]([])
+card_origin = Array[int]([7])

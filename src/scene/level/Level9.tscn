@@ -35,6 +35,7 @@ grow_vertical = 2
 script = ExtResource("1_en5o6")
 level_id = 8
 level_description = "~That black yugioh card's \"level\" is a bit different, but you can count them just fine~
+~Again, check the setting menu if you have trouble with color~
 (  . .)"
 allow_symbol_compare = true
 
