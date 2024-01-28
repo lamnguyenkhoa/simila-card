@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://cxhdgiawu7vi6"]
+
+[ext_resource type="Texture2D" uid="uid://dudslbb07ijb8" path="res://asset/sprite/card_sprite/bang/bang_green_7_club.png" id="1_yk5lv"]
+[ext_resource type="Script" path="res://src/card/card_resource.gd" id="2_1iaba"]
+
+[resource]
+script = ExtResource("2_1iaba")
+card_name = "bang green 7 club"
+card_sprite = ExtResource("1_yk5lv")
+card_number = Array[int]([7])
+card_color = Array[int]([2])
+card_symbol = Array[int]([4])
+card_origin = Array[int]([8])

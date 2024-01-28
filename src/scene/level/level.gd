@@ -91,7 +91,7 @@ func compare_card(card_to_check: Card, placed_card: Card) -> String:
 	var common_symbols = intersect(card_to_check.data.card_symbol, placed_card.data.card_symbol)
 	if len(common_symbols) > 0:
 		if allow_symbol_compare:
-			return "Similar\ntype!"
+			return "Similar\nsymbol!"
 		else:
 			has_disallowed = true
 
@@ -99,7 +99,7 @@ func compare_card(card_to_check: Card, placed_card: Card) -> String:
 	if allow_origin_compare:
 		var common_origins = intersect(card_to_check.data.card_origin, placed_card.data.card_origin)
 		if len(common_origins) > 0:
-			return "Similar\ntype!"
+			return "Similar\norigin!"
 
 	if has_disallowed:
 		return "Disallowed!"

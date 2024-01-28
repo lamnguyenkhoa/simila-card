@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://si6sxc2vldbp"]
+
+[ext_resource type="Texture2D" uid="uid://dllt3yspi2grh" path="res://asset/sprite/card_sprite/bang/bang_yellow_9_heart.png" id="1_ys270"]
+[ext_resource type="Script" path="res://src/card/card_resource.gd" id="2_rof1m"]
+
+[resource]
+script = ExtResource("2_rof1m")
+card_name = "bang yellow 9 heart"
+card_sprite = ExtResource("1_ys270")
+card_number = Array[int]([9])
+card_color = Array[int]([4])
+card_symbol = Array[int]([5])
+card_origin = Array[int]([8])

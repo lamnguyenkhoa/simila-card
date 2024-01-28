@@ -6,13 +6,14 @@ class_name SettingUI
 @onready var sfx_slider: HSlider = $SettingPanel/SFXSlider
 @onready var zoom_camera_button: Button = $SettingPanel/ZoomCameraButton
 @onready var camera_sway_button: Button = $SettingPanel/CameraSwayButton
-
+@onready var show_color_button: Button = $SettingPanel/ShowCardColorButton
 
 func _ready() -> void:
 	bgm_slider.value = SoundManager.get_music_volume() * 100
 	sfx_slider.value = SoundManager.get_sound_volume() * 100
 	zoom_camera_button.button_pressed = GameManager.zoom_camera_enabled
 	camera_sway_button.button_pressed = not GameManager.camera_sway_enabled
+	show_color_button.button_pressed = GameManager.show_card_color
 
 func _on_setting_button_pressed() -> void:
 	setting_panel.visible = !setting_panel.visible
