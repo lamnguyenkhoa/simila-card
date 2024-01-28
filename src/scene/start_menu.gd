@@ -13,13 +13,7 @@ func _ready() -> void:
 		button.pressed.connect(_play_button_click_sfx)
 		button.mouse_entered.connect(_play_button_hover_sfx)
 
-		# Unlock played level
-		if i <= GameManager.highest_level_id:
-			button.disabled = false
-		else:
-			button.disabled = true
-
-		# Add in-construction icon to levels not created
+		# Add in-construction icon to levels in construction and disabled it
 		if i >= len(GameManager.level_list):
 			button.disabled = true
 			button.text = ""
@@ -27,8 +21,13 @@ func _ready() -> void:
 			button.icon = construction_img
 			button.expand_icon = true
 		else:
+			button.disabled = false
 			button.pressed.connect(func ():  get_tree().change_scene_to_packed(GameManager.level_list[i]))
 			button.text = str(i + 1)
+
+		# Change the text color for played level
+		if i in GameManager.cleared_levels:
+			button.add_theme_color_override("font_color", "b8b8ff")
 
 func _on_start_button_pressed() -> void:
 	_play_button_click_sfx()
