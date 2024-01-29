@@ -8,6 +8,7 @@ class_name GameUI
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var next_level_button = $LevelFinishPopup/HBoxContainer/NextButton
 @onready var similarity_label = $SimilarityLabel
+@onready var level_finished_label: Label = $LevelFinishPopup/Title
 
 @onready var zoom_camera: Camera2D = $SubViewportContainer/SubViewport/ZoomCamera
 @onready var zoom_texture: TextureRect = $SubViewportContainer/SubViewport/CardTexture
@@ -66,7 +67,7 @@ func _on_level_finished(level_id: int):
 		next_level_scene = GameManager.level_list[level_id + 1]
 	else:
 		next_level_button.visible  = false
-		print("Out of level, back to menu pls")
+		level_finished_label.text = "Level finished!\nThanks for playing~"
 
 func _on_next_button_pressed() -> void:
 	SoundManager.play_button_click_sfx()

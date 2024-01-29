@@ -210,7 +210,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/font_size = 32
-text = "v1.1.3"
+text = "v1.2"
 horizontal_alignment = 1
 
 [node name="LevelSelect" type="Control" parent="."]
@@ -222,8 +222,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 143.0
-offset_right = 143.0
+offset_left = 205.0
+offset_top = 49.0
+offset_right = 205.0
+offset_bottom = 49.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -436,71 +438,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 32
 text = "15"
-
-[node name="Button16" type="Button" parent="LevelSelect/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 32
-text = "16"
-
-[node name="Button17" type="Button" parent="LevelSelect/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 32
-text = "17"
-
-[node name="Button18" type="Button" parent="LevelSelect/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 32
-text = "18"
-
-[node name="Button19" type="Button" parent="LevelSelect/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 32
-text = "19"
-
-[node name="Button20" type="Button" parent="LevelSelect/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.972549, 0.968627, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_focus_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.576471, 0.505882, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 32
-text = "20"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "ready"

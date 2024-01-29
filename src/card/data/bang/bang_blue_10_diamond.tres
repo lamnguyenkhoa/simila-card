@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://com06r1h217cs"]
+
+[ext_resource type="Texture2D" uid="uid://do28s6h81oljc" path="res://asset/sprite/card_sprite/bang/bang_blue_10_diamond.png" id="1_4el6n"]
+[ext_resource type="Script" path="res://src/card/card_resource.gd" id="2_pxkj8"]
+
+[resource]
+script = ExtResource("2_pxkj8")
+card_name = "bang blue 10 diamond"
+card_sprite = ExtResource("1_4el6n")
+card_number = Array[int]([10])
+card_color = Array[int]([3])
+card_symbol = Array[int]([3])
+card_origin = Array[int]([8])

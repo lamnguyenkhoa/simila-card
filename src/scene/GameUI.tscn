@@ -159,10 +159,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -153.5
+offset_left = -153.0
 offset_top = -884.0
-offset_right = 153.5
-offset_bottom = -718.0
+offset_right = 154.0
+offset_bottom = -696.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_5e0wb")
@@ -194,7 +194,7 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(0.576471, 0.505882, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
-text = "Level finished"
+text = "Level finished!"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="LevelFinishPopup"]

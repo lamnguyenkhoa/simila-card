@@ -51,8 +51,10 @@ layout_mode = 2
 
 [node name="Card" parent="TableCardHolder/CardSlot" instance=ExtResource("4_duyc8")]
 layout_mode = 2
-offset_right = 110.0
-offset_bottom = 175.0
+offset_left = 2.5
+offset_top = 2.5
+offset_right = 112.5
+offset_bottom = 177.5
 data = ExtResource("5_m08gn")
 locked = true
 
@@ -73,8 +75,10 @@ layout_mode = 2
 
 [node name="Card6" parent="TableCardHolder/CardSlot6" instance=ExtResource("4_duyc8")]
 layout_mode = 2
-offset_right = 110.0
-offset_bottom = 175.0
+offset_left = 2.5
+offset_top = 2.5
+offset_right = 112.5
+offset_bottom = 177.5
 data = ExtResource("10_xon3y")
 locked = true
 
